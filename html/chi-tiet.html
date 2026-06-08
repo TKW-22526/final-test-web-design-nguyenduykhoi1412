@@ -1,0 +1,1462 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết sản phẩm - Duy Khôi Pharmacy</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <button class="theme-fab" onclick="toggleDarkMode()"><i class="fa-solid fa-moon"></i></button>
+    <button id="topBtn" onclick="backToTop()"><i class="fa-solid fa-arrow-up"></i></button>
+    <button class="cart-fab" onclick="showCart()">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span class="count" id="cartCount">0</span>
+    </button>
+
+    <header>
+        <div class="logo-area">
+            <img src="../assets/logo.jpg" class="logo" alt="Duy Khôi Pharmacy">
+            <div>
+                <h2>Duy Khôi</h2>
+                <p>Smart Pharmacy</p>
+            </div>
+        </div>
+        <div class="user-greet" id="userGreeting" style="display:none">
+            <i class="fa-solid fa-circle-user"></i>
+            <span class="name" id="userName"></span>
+            <button class="logout-btn" onclick="logout()" title="Đăng xuất"><i class="fa-solid fa-right-from-bracket"></i></button>
+        </div>
+        <div class="menu-toggle" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></div>
+        <nav id="navMenu">
+            <a href="../index.html">Trang chủ</a>
+            <a href="gioi-thieu.html">Giới thiệu</a>
+            <a href="san-pham.html">Sản phẩm</a>
+            <a href="tin-tuc.html">Tin tức</a>
+            <a href="chi-tiet.html" class="active">Chi tiết</a>
+            <a href="lien-he.html">AI Tư vấn</a>
+            <a href="dang-nhap.html">Tài khoản</a>
+        </nav>
+    </header>
+
+    <section class="page-hero">
+        <h1>Chi Tiết Sản Phẩm</h1>
+        <p>Thông tin chi tiết tất cả sản phẩm thuốc, vitamin, thiết bị y tế tại Duy Khôi Pharmacy</p>
+    </section>
+
+    <!-- Paracetamol -->
+    <div class="detail-section" id="paracetamol">
+        <div class="detail-layout reveal">
+            <div class="detail-gallery">
+                <img src="../assets/panaldo.jpeg" alt="Paracetamol 500mg" style="width:100%;display:block;">
+                <div class="thumb-overlay">
+                    <span class="thumb-dot active"></span>
+                    <span class="thumb-dot"></span>
+                    <span class="thumb-dot"></span>
+                </div>
+            </div>
+            <div class="detail-info">
+                <span class="badge" style="background:var(--green);color:white;padding:4px 14px;border-radius:50px;font-size:12px;font-weight:600;display:inline-block;margin-bottom:12px;">Thuốc kê đơn</span>
+                <h1>Paracetamol 500mg</h1>
+                <div class="price-lg">25.000 VNĐ</div>
+                <p class="desc">
+                    Paracetamol là thuốc giảm đau, hạ sốt thông dụng. Được sử dụng rộng rãi để điều trị 
+                    đau đầu, đau cơ, đau răng, đau lưng và hạ sốt. An toàn khi dùng đúng liều lượng.
+                </p>
+                <div class="actions">
+                    <button class="btn btn-primary" onclick="addCart('Paracetamol 500mg')">
+                        <i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ
+                    </button>
+                    <button class="btn btn-outline" onclick="saveMedicine('Paracetamol 500mg')">
+                        <i class="fa-solid fa-floppy-disk"></i> Lưu lịch sử
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="detail-box reveal">
+            <h3>Thông tin chi tiết</h3>
+            <table>
+                <tr><td><span class="spec-badge">Thành phần</span></td><td>Paracetamol 500mg</td></tr>
+                <tr><td><span class="spec-badge">Dạng bào chế</span></td><td>Viên nén</td></tr>
+                <tr><td><span class="spec-badge">Quy cách</span></td><td>Hộp 10 vỉ x 10 viên</td></tr>
+                <tr><td><span class="spec-badge">Nhà sản xuất</span></td><td>Công ty Dược phẩm TW</td></tr>
+                <tr><td><span class="spec-badge">Hạn sử dụng</span></td><td>36 tháng</td></tr>
+                <tr><td><span class="spec-badge">Bảo quản</span></td><td>Nơi khô ráo, nhiệt độ dưới 30°C</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Vitamin C -->
+    <div class="detail-section" id="vitamin-c">
+        <div class="detail-layout reveal">
+            <div class="detail-gallery">
+                <img src="../assets/vitamin c.jpeg" alt="Vitamin C 500mg" style="width:100%;display:block;">
+                <div class="thumb-overlay">
+                    <span class="thumb-dot active"></span>
+                    <span class="thumb-dot"></span>
+                    <span class="thumb-dot"></span>
+                </div>
+            </div>
+            <div class="detail-info">
+                <span class="badge" style="background:var(--green);color:white;padding:4px 14px;border-radius:50px;font-size:12px;font-weight:600;display:inline-block;margin-bottom:12px;">Thực phẩm chức năng</span>
+                <h1>Vitamin C 500mg</h1>
+                <div class="price-lg">70.000 VNĐ</div>
+                <p class="desc">
+                    Vitamin C giúp tăng cường sức đề kháng, chống oxy hóa, hỗ trợ hấp thu sắt. 
+                    Phù hợp cho cả gia đình, giúp cơ thể khỏe mạnh mỗi ngày.
+                </p>
+                <div class="actions">
+                    <button class="btn btn-primary" onclick="addCart('Vitamin C 500mg')">
+                        <i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ
+                    </button>
+                    <button class="btn btn-outline" onclick="saveMedicine('Vitamin C 500mg')">
+                        <i class="fa-solid fa-floppy-disk"></i> Lưu lịch sử
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="detail-box reveal">
+            <h3>Thông tin chi tiết</h3>
+            <table>
+                <tr><td><span class="spec-badge">Thành phần</span></td><td>Vitamin C 500mg</td></tr>
+                <tr><td><span class="spec-badge">Dạng bào chế</span></td><td>Viên nén</td></tr>
+                <tr><td><span class="spec-badge">Quy cách</span></td><td>Lọ 100 viên</td></tr>
+                <tr><td><span class="spec-badge">Nhà sản xuất</span></td><td>Công ty Dược phẩm TW</td></tr>
+                <tr><td><span class="spec-badge">Hạn sử dụng</span></td><td>24 tháng</td></tr>
+                <tr><td><span class="spec-badge">Bảo quản</span></td><td>Nơi khô ráo, tránh ánh sáng</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Omega 3 -->
+    <div class="detail-section" id="omega-3">
+        <div class="detail-layout reveal">
+            <div class="detail-gallery">
+                <img src="../assets/Omega 3.jpg" alt="Omega 3" style="width:100%;display:block;">
+                <div class="thumb-overlay">
+                    <span class="thumb-dot active"></span>
+                    <span class="thumb-dot"></span>
+                    <span class="thumb-dot"></span>
+                </div>
+            </div>
+            <div class="detail-info">
+                <span class="badge" style="background:var(--green);color:white;padding:4px 14px;border-radius:50px;font-size:12px;font-weight:600;display:inline-block;margin-bottom:12px;">Thực phẩm chức năng</span>
+                <h1>Omega 3</h1>
+                <div class="price-lg">150.000 VNĐ</div>
+                <p class="desc">
+                    Omega 3 hỗ trợ tim mạch, giảm cholesterol xấu, tăng cường trí não và thị lực. 
+                    Chiết xuất từ dầu cá tự nhiên, an toàn cho sức khỏe.
+                </p>
+                <div class="actions">
+                    <button class="btn btn-primary" onclick="addCart('Omega 3')">
+                        <i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ
+                    </button>
+                    <button class="btn btn-outline" onclick="saveMedicine('Omega 3')">
+                        <i class="fa-solid fa-floppy-disk"></i> Lưu lịch sử
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="detail-box reveal">
+            <h3>Thông tin chi tiết</h3>
+            <table>
+                <tr><td><span class="spec-badge">Thành phần</span></td><td>Dầu cá Omega 3 (EPA/DHA)</td></tr>
+                <tr><td><span class="spec-badge">Dạng bào chế</span></td><td>Viên nang mềm</td></tr>
+                <tr><td><span class="spec-badge">Quy cách</span></td><td>Lọ 60 viên</td></tr>
+                <tr><td><span class="spec-badge">Nhà sản xuất</span></td><td>Dược phẩm Quốc tế</td></tr>
+                <tr><td><span class="spec-badge">Hạn sử dụng</span></td><td>36 tháng</td></tr>
+                <tr><td><span class="spec-badge">Bảo quản</span></td><td>Nơi khô mát, nhiệt độ dưới 25°C</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Canxi -->
+    <div class="detail-section" id="canxi">
+        <div class="detail-layout reveal">
+            <div class="detail-gallery">
+                <img src="../assets/Canxi 500mg.jpg" alt="Canxi" style="width:100%;display:block;">
+                <div class="thumb-overlay">
+                    <span class="thumb-dot active"></span>
+                    <span class="thumb-dot"></span>
+                    <span class="thumb-dot"></span>
+                </div>
+            </div>
+            <div class="detail-info">
+                <span class="badge" style="background:var(--green);color:white;padding:4px 14px;border-radius:50px;font-size:12px;font-weight:600;display:inline-block;margin-bottom:12px;">Thực phẩm chức năng</span>
+                <h1>Canxi</h1>
+                <div class="price-lg">120.000 VNĐ</div>
+                <p class="desc">
+                    Bổ sung canxi cho xương chắc khỏe, phòng ngừa loãng xương. Đặc biệt tốt cho 
+                    người lớn tuổi, phụ nữ mang thai và trẻ em đang phát triển.
+                </p>
+                <div class="actions">
+                    <button class="btn btn-primary" onclick="addCart('Canxi')">
+                        <i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ
+                    </button>
+                    <button class="btn btn-outline" onclick="saveMedicine('Canxi')">
+                        <i class="fa-solid fa-floppy-disk"></i> Lưu lịch sử
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="detail-box reveal">
+            <h3>Thông tin chi tiết</h3>
+            <table>
+                <tr><td><span class="spec-badge">Thành phần</span></td><td>Canxi Carbonate 500mg</td></tr>
+                <tr><td><span class="spec-badge">Dạng bào chế</span></td><td>Viên nén</td></tr>
+                <tr><td><span class="spec-badge">Quy cách</span></td><td>Lọ 90 viên</td></tr>
+                <tr><td><span class="spec-badge">Nhà sản xuất</span></td><td>Công ty Dược phẩm TW</td></tr>
+                <tr><td><span class="spec-badge">Hạn sử dụng</span></td><td>36 tháng</td></tr>
+                <tr><td><span class="spec-badge">Bảo quản</span></td><td>Nơi khô ráo, nhiệt độ phòng</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Dụng cụ y tế: Nhiệt kế -->
+    <div class="detail-section" id="nhiet-ke">
+        <div class="detail-layout reveal">
+            <div class="detail-gallery">
+                <img src="../assets/nhiệt kế điện tử.jpg" alt="Nhiệt Kế Điện Tử" style="width:100%;display:block;">
+                <div class="thumb-overlay">
+                    <span class="thumb-dot active"></span>
+                    <span class="thumb-dot"></span>
+                    <span class="thumb-dot"></span>
+                </div>
+            </div>
+            <div class="detail-info">
+                <span class="badge" style="background:#e67e22;color:white;padding:4px 14px;border-radius:50px;font-size:12px;font-weight:600;display:inline-block;margin-bottom:12px;">Dụng cụ y tế</span>
+                <h1>Nhiệt Kế Điện Tử</h1>
+                <div class="price-lg">180.000 VNĐ</div>
+                <p class="desc">
+                    Nhiệt kế điện tử đo nhiệt độ nhanh chóng và chính xác. Màn hình LCD dễ đọc, 
+                    phù hợp cho mọi lứa tuổi. Kết quả sau 30 giây.
+                </p>
+                <div class="actions">
+                    <button class="btn btn-primary" onclick="addCart('Nhiệt Kế Điện Tử')">
+                        <i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ
+                    </button>
+                    <button class="btn btn-outline" onclick="saveMedicine('Nhiệt Kế Điện Tử')">
+                        <i class="fa-solid fa-floppy-disk"></i> Lưu lịch sử
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="detail-box reveal">
+            <h3>Thông tin chi tiết</h3>
+            <table>
+                <tr><td><span class="spec-badge">Loại</span></td><td>Điện tử hồng ngoại</td></tr>
+                <tr><td><span class="spec-badge">Màn hình</span></td><td>LCD</td></tr>
+                <tr><td><span class="spec-badge">Thời gian đo</span></td><td>30 giây</td></tr>
+                <tr><td><span class="spec-badge">Nhà sản xuất</span></td><td>Thiết bị Y tế Việt</td></tr>
+                <tr><td><span class="spec-badge">Bảo hành</span></td><td>12 tháng</td></tr>
+                <tr><td><span class="spec-badge">Bảo quản</span></td><td>Nhiệt độ phòng, tránh ẩm</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Máy đo đường huyết -->
+    <div class="detail-section" id="may-do-duong">
+        <div class="detail-layout reveal">
+            <div class="detail-gallery">
+                <img src="../assets/đo đường điện tử.jpg" alt="Máy Đo Đường Huyết" style="width:100%;display:block;">
+                <div class="thumb-overlay">
+                    <span class="thumb-dot active"></span>
+                    <span class="thumb-dot"></span>
+                    <span class="thumb-dot"></span>
+                </div>
+            </div>
+            <div class="detail-info">
+                <span class="badge" style="background:#e67e22;color:white;padding:4px 14px;border-radius:50px;font-size:12px;font-weight:600;display:inline-block;margin-bottom:12px;">Dụng cụ y tế</span>
+                <h1>Máy Đo Đường Huyết</h1>
+                <div class="price-lg">790.000 VNĐ</div>
+                <p class="desc">
+                    Máy đo đường huyết tại nhà với độ chính xác cao. Kết quả nhanh sau 5 giây, 
+                    bộ nhớ lưu trữ 500 kết quả. Dễ dàng sử dụng cho người cao tuổi.
+                </p>
+                <div class="actions">
+                    <button class="btn btn-primary" onclick="addCart('Máy Đo Đường Huyết')">
+                        <i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ
+                    </button>
+                    <button class="btn btn-outline" onclick="saveMedicine('Máy Đo Đường Huyết')">
+                        <i class="fa-solid fa-floppy-disk"></i> Lưu lịch sử
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="detail-box reveal">
+            <h3>Thông tin chi tiết</h3>
+            <table>
+                <tr><td><span class="spec-badge">Loại</span></td><td>Máy đo đường huyết</td></tr>
+                <tr><td><span class="spec-badge">Thời gian đo</span></td><td>5 giây</td></tr>
+                <tr><td><span class="spec-badge">Bộ nhớ</span></td><td>500 kết quả</td></tr>
+                <tr><td><span class="spec-badge">Nhà sản xuất</span></td><td>Thiết bị Y tế Việt</td></tr>
+                <tr><td><span class="spec-badge">Bảo hành</span></td><td>24 tháng</td></tr>
+                <tr><td><span class="spec-badge">Phụ kiện</span></td><td>Kèm 10 que thử + bút lấy máu</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Antibi -->
+    <div class="detail-section" id="antibi">
+        <div class="detail-layout reveal">
+            <div class="detail-gallery">
+                <img src="../assets/antibi.jpeg" alt="Antibi" style="width:100%;display:block;">
+                <div class="thumb-overlay">
+                    <span class="thumb-dot active"></span>
+                    <span class="thumb-dot"></span>
+                    <span class="thumb-dot"></span>
+                </div>
+            </div>
+            <div class="detail-info">
+                <span class="badge" style="background:var(--green);color:white;padding:4px 14px;border-radius:50px;font-size:12px;font-weight:600;display:inline-block;margin-bottom:12px;">Thuốc kháng sinh</span>
+                <h1>Antibi</h1>
+                <div class="price-lg">65.000 VNĐ</div>
+                <p class="desc">
+                    Antibi là kháng sinh điều trị nhiễm khuẩn hô hấp nhẹ. Hỗ trợ điều trị viêm họng,
+                    viêm amidan và nhiễm khuẩn da. Cần sử dụng theo chỉ định của bác sĩ.
+                </p>
+                <div class="actions">
+                    <button class="btn btn-primary" onclick="addCart('Antibi')">
+                        <i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ
+                    </button>
+                    <button class="btn btn-outline" onclick="saveMedicine('Antibi')">
+                        <i class="fa-solid fa-floppy-disk"></i> Lưu lịch sử
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="detail-box reveal">
+            <h3>Thông tin chi tiết</h3>
+            <table>
+                <tr><td><span class="spec-badge">Thành phần</span></td><td>Antibi 500mg</td></tr>
+                <tr><td><span class="spec-badge">Dạng bào chế</span></td><td>Viên nén</td></tr>
+                <tr><td><span class="spec-badge">Quy cách</span></td><td>Hộp 10 vỉ x 10 viên</td></tr>
+                <tr><td><span class="spec-badge">Nhà sản xuất</span></td><td>Công ty Dược phẩm TW</td></tr>
+                <tr><td><span class="spec-badge">Hạn sử dụng</span></td><td>36 tháng</td></tr>
+                <tr><td><span class="spec-badge">Bảo quản</span></td><td>Nơi khô ráo, nhiệt độ dưới 30°C</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Ibuprofen -->
+    <div class="detail-section" id="ibuprofen">
+        <div class="detail-layout reveal">
+            <div class="detail-gallery">
+                <img src="../assets/Ibuprofen 400mg.jpg" alt="Ibuprofen 400mg" style="width:100%;display:block;">
+                <div class="thumb-overlay">
+                    <span class="thumb-dot active"></span>
+                    <span class="thumb-dot"></span>
+                    <span class="thumb-dot"></span>
+                </div>
+            </div>
+            <div class="detail-info">
+                <span class="badge" style="background:var(--green);color:white;padding:4px 14px;border-radius:50px;font-size:12px;font-weight:600;display:inline-block;margin-bottom:12px;">Thuốc giảm đau, hạ sốt</span>
+                <h1>Ibuprofen 400mg</h1>
+                <div class="price-lg">45.000 VNĐ</div>
+                <p class="desc">
+                    Ibuprofen là thuốc giảm đau, hạ sốt và chống viêm không steroid. Hiệu quả trong
+                    điều trị đau khớp, đau cơ, đau răng và hạ sốt. Có tác dụng chống viêm mạnh hơn Paracetamol.
+                </p>
+                <div class="actions">
+                    <button class="btn btn-primary" onclick="addCart('Ibuprofen')">
+                        <i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ
+                    </button>
+                    <button class="btn btn-outline" onclick="saveMedicine('Ibuprofen')">
+                        <i class="fa-solid fa-floppy-disk"></i> Lưu lịch sử
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="detail-box reveal">
+            <h3>Thông tin chi tiết</h3>
+            <table>
+                <tr><td><span class="spec-badge">Thành phần</span></td><td>Ibuprofen 400mg</td></tr>
+                <tr><td><span class="spec-badge">Dạng bào chế</span></td><td>Viên nén bao phim</td></tr>
+                <tr><td><span class="spec-badge">Quy cách</span></td><td>Hộp 10 vỉ x 10 viên</td></tr>
+                <tr><td><span class="spec-badge">Nhà sản xuất</span></td><td>Công ty Dược phẩm TW</td></tr>
+                <tr><td><span class="spec-badge">Hạn sử dụng</span></td><td>36 tháng</td></tr>
+                <tr><td><span class="spec-badge">Bảo quản</span></td><td>Nơi khô ráo, tránh ánh sáng</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Aspirin -->
+    <div class="detail-section" id="aspirin">
+        <div class="detail-layout reveal">
+            <div class="detail-gallery">
+                <img src="../assets/Aspirin 80mg.jpg" alt="Aspirin 80mg" style="width:100%;display:block;">
+                <div class="thumb-overlay">
+                    <span class="thumb-dot active"></span>
+                    <span class="thumb-dot"></span>
+                    <span class="thumb-dot"></span>
+                </div>
+            </div>
+            <div class="detail-info">
+                <span class="badge" style="background:var(--green);color:white;padding:4px 14px;border-radius:50px;font-size:12px;font-weight:600;display:inline-block;margin-bottom:12px;">Thuốc giảm đau, hạ sốt</span>
+                <h1>Aspirin 80mg</h1>
+                <div class="price-lg">35.000 VNĐ</div>
+                <p class="desc">
+                    Aspirin liều thấp giúp giảm đau nhẹ, hạ sốt và chống kết tập tiểu cầu.
+                    Thường được chỉ định để phòng ngừa nhồi máu cơ tim và đột quỵ ở người lớn tuổi.
+                </p>
+                <div class="actions">
+                    <button class="btn btn-primary" onclick="addCart('Aspirin')">
+                        <i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ
+                    </button>
+                    <button class="btn btn-outline" onclick="saveMedicine('Aspirin')">
+                        <i class="fa-solid fa-floppy-disk"></i> Lưu lịch sử
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="detail-box reveal">
+            <h3>Thông tin chi tiết</h3>
+            <table>
+                <tr><td><span class="spec-badge">Thành phần</span></td><td>Aspirin 80mg</td></tr>
+                <tr><td><span class="spec-badge">Dạng bào chế</span></td><td>Viên nén</td></tr>
+                <tr><td><span class="spec-badge">Quy cách</span></td><td>Hộp 5 vỉ x 10 viên</td></tr>
+                <tr><td><span class="spec-badge">Nhà sản xuất</span></td><td>Dược phẩm Quốc tế</td></tr>
+                <tr><td><span class="spec-badge">Hạn sử dụng</span></td><td>36 tháng</td></tr>
+                <tr><td><span class="spec-badge">Bảo quản</span></td><td>Nơi khô ráo, nhiệt độ dưới 25°C</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Amoxicillin -->
+    <div class="detail-section" id="amoxicillin">
+        <div class="detail-layout reveal">
+            <div class="detail-gallery">
+                <img src="../assets/Amoxicillin 500mg.jpg" alt="Amoxicillin 500mg" style="width:100%;display:block;">
+                <div class="thumb-overlay">
+                    <span class="thumb-dot active"></span>
+                    <span class="thumb-dot"></span>
+                    <span class="thumb-dot"></span>
+                </div>
+            </div>
+            <div class="detail-info">
+                <span class="badge" style="background:var(--green);color:white;padding:4px 14px;border-radius:50px;font-size:12px;font-weight:600;display:inline-block;margin-bottom:12px;">Thuốc kháng sinh</span>
+                <h1>Amoxicillin 500mg</h1>
+                <div class="price-lg">85.000 VNĐ</div>
+                <p class="desc">
+                    Amoxicillin là kháng sinh phổ rộng thuộc nhóm Penicillin. Điều trị nhiễm khuẩn
+                    đường hô hấp, tiết niệu, da và mô mềm. Cần có đơn thuốc của bác sĩ.
+                </p>
+                <div class="actions">
+                    <button class="btn btn-primary" onclick="addCart('Amoxicillin')">
+                        <i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ
+                    </button>
+                    <button class="btn btn-outline" onclick="saveMedicine('Amoxicillin')">
+                        <i class="fa-solid fa-floppy-disk"></i> Lưu lịch sử
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="detail-box reveal">
+            <h3>Thông tin chi tiết</h3>
+            <table>
+                <tr><td><span class="spec-badge">Thành phần</span></td><td>Amoxicillin 500mg</td></tr>
+                <tr><td><span class="spec-badge">Dạng bào chế</span></td><td>Viên nang</td></tr>
+                <tr><td><span class="spec-badge">Quy cách</span></td><td>Hộp 10 vỉ x 10 viên</td></tr>
+                <tr><td><span class="spec-badge">Nhà sản xuất</span></td><td>Công ty Dược phẩm TW</td></tr>
+                <tr><td><span class="spec-badge">Hạn sử dụng</span></td><td>36 tháng</td></tr>
+                <tr><td><span class="spec-badge">Bảo quản</span></td><td>Nơi khô ráo, nhiệt độ dưới 30°C</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Azithromycin -->
+    <div class="detail-section" id="azithromycin">
+        <div class="detail-layout reveal">
+            <div class="detail-gallery">
+                <img src="../assets/Azithromycin 250mg.jpg" alt="Azithromycin 250mg" style="width:100%;display:block;">
+                <div class="thumb-overlay">
+                    <span class="thumb-dot active"></span>
+                    <span class="thumb-dot"></span>
+                    <span class="thumb-dot"></span>
+                </div>
+            </div>
+            <div class="detail-info">
+                <span class="badge" style="background:var(--green);color:white;padding:4px 14px;border-radius:50px;font-size:12px;font-weight:600;display:inline-block;margin-bottom:12px;">Thuốc kháng sinh</span>
+                <h1>Azithromycin 250mg</h1>
+                <div class="price-lg">120.000 VNĐ</div>
+                <p class="desc">
+                    Azithromycin là kháng sinh nhóm Macrolid, điều trị nhiễm khuẩn hô hấp,
+                    viêm phổi, viêm phế quản, nhiễm khuẩn da và mô mềm. Liệu trình ngắn 3-5 ngày.
+                </p>
+                <div class="actions">
+                    <button class="btn btn-primary" onclick="addCart('Azithromycin')">
+                        <i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ
+                    </button>
+                    <button class="btn btn-outline" onclick="saveMedicine('Azithromycin')">
+                        <i class="fa-solid fa-floppy-disk"></i> Lưu lịch sử
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="detail-box reveal">
+            <h3>Thông tin chi tiết</h3>
+            <table>
+                <tr><td><span class="spec-badge">Thành phần</span></td><td>Azithromycin 250mg</td></tr>
+                <tr><td><span class="spec-badge">Dạng bào chế</span></td><td>Viên nang</td></tr>
+                <tr><td><span class="spec-badge">Quy cách</span></td><td>Hộp 3 vỉ x 10 viên</td></tr>
+                <tr><td><span class="spec-badge">Nhà sản xuất</span></td><td>Dược phẩm Quốc tế</td></tr>
+                <tr><td><span class="spec-badge">Hạn sử dụng</span></td><td>24 tháng</td></tr>
+                <tr><td><span class="spec-badge">Bảo quản</span></td><td>Nơi khô ráo, nhiệt độ dưới 25°C</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Vitamin B Complex -->
+    <div class="detail-section" id="vitamin-b">
+        <div class="detail-layout reveal">
+            <div class="detail-gallery">
+                <img src="../assets/Vitamin B Complex.jpg" alt="Vitamin B Complex" style="width:100%;display:block;">
+                <div class="thumb-overlay">
+                    <span class="thumb-dot active"></span>
+                    <span class="thumb-dot"></span>
+                    <span class="thumb-dot"></span>
+                </div>
+            </div>
+            <div class="detail-info">
+                <span class="badge" style="background:var(--green);color:white;padding:4px 14px;border-radius:50px;font-size:12px;font-weight:600;display:inline-block;margin-bottom:12px;">Thực phẩm chức năng</span>
+                <h1>Vitamin B Complex</h1>
+                <div class="price-lg">90.000 VNĐ</div>
+                <p class="desc">
+                    Vitamin B Complex cung cấp đầy đủ các vitamin nhóm B (B1, B2, B3, B5, B6, B12).
+                    Hỗ trợ chuyển hóa năng lượng, tăng cường hệ thần kinh, giảm mệt mỏi và căng thẳng.
+                </p>
+                <div class="actions">
+                    <button class="btn btn-primary" onclick="addCart('Vitamin B Complex')">
+                        <i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ
+                    </button>
+                    <button class="btn btn-outline" onclick="saveMedicine('Vitamin B Complex')">
+                        <i class="fa-solid fa-floppy-disk"></i> Lưu lịch sử
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="detail-box reveal">
+            <h3>Thông tin chi tiết</h3>
+            <table>
+                <tr><td><span class="spec-badge">Thành phần</span></td><td>Vitamin B1, B2, B3, B5, B6, B12</td></tr>
+                <tr><td><span class="spec-badge">Dạng bào chế</span></td><td>Viên nén</td></tr>
+                <tr><td><span class="spec-badge">Quy cách</span></td><td>Lọ 100 viên</td></tr>
+                <tr><td><span class="spec-badge">Nhà sản xuất</span></td><td>Công ty Dược phẩm TW</td></tr>
+                <tr><td><span class="spec-badge">Hạn sử dụng</span></td><td>24 tháng</td></tr>
+                <tr><td><span class="spec-badge">Bảo quản</span></td><td>Nơi khô ráo, tránh ánh sáng</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Vitamin D3 -->
+    <div class="detail-section" id="vitamin-d3">
+        <div class="detail-layout reveal">
+            <div class="detail-gallery">
+                <img src="../assets/Vitamin D3 400IU.jpg" alt="Vitamin D3" style="width:100%;display:block;">
+                <div class="thumb-overlay">
+                    <span class="thumb-dot active"></span>
+                    <span class="thumb-dot"></span>
+                    <span class="thumb-dot"></span>
+                </div>
+            </div>
+            <div class="detail-info">
+                <span class="badge" style="background:var(--green);color:white;padding:4px 14px;border-radius:50px;font-size:12px;font-weight:600;display:inline-block;margin-bottom:12px;">Thực phẩm chức năng</span>
+                <h1>Vitamin D3 400IU</h1>
+                <div class="price-lg">65.000 VNĐ</div>
+                <p class="desc">
+                    Vitamin D3 giúp hấp thu canxi và phospho hiệu quả, hỗ trợ xương chắc khỏe.
+                    Tăng cường hệ miễn dịch, đặc biệt cần thiết cho người ít tiếp xúc với ánh nắng.
+                </p>
+                <div class="actions">
+                    <button class="btn btn-primary" onclick="addCart('Vitamin D3')">
+                        <i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ
+                    </button>
+                    <button class="btn btn-outline" onclick="saveMedicine('Vitamin D3')">
+                        <i class="fa-solid fa-floppy-disk"></i> Lưu lịch sử
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="detail-box reveal">
+            <h3>Thông tin chi tiết</h3>
+            <table>
+                <tr><td><span class="spec-badge">Thành phần</span></td><td>Vitamin D3 400IU</td></tr>
+                <tr><td><span class="spec-badge">Dạng bào chế</span></td><td>Viên nang mềm</td></tr>
+                <tr><td><span class="spec-badge">Quy cách</span></td><td>Lọ 60 viên</td></tr>
+                <tr><td><span class="spec-badge">Nhà sản xuất</span></td><td>Dược phẩm Quốc tế</td></tr>
+                <tr><td><span class="spec-badge">Hạn sử dụng</span></td><td>36 tháng</td></tr>
+                <tr><td><span class="spec-badge">Bảo quản</span></td><td>Nơi khô mát, nhiệt độ dưới 25°C</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Men tiêu hóa -->
+    <div class="detail-section" id="men-tieu-hoa">
+        <div class="detail-layout reveal">
+            <div class="detail-gallery">
+                <img src="../assets/Men Tiêu Hóa.jpg" alt="Men tiêu hóa" style="width:100%;display:block;">
+                <div class="thumb-overlay">
+                    <span class="thumb-dot active"></span>
+                    <span class="thumb-dot"></span>
+                    <span class="thumb-dot"></span>
+                </div>
+            </div>
+            <div class="detail-info">
+                <span class="badge" style="background:var(--green);color:white;padding:4px 14px;border-radius:50px;font-size:12px;font-weight:600;display:inline-block;margin-bottom:12px;">Thuốc tiêu hóa</span>
+                <h1>Men Tiêu Hóa</h1>
+                <div class="price-lg">55.000 VNĐ</div>
+                <p class="desc">
+                    Men tiêu hóa bổ sung enzym giúp tiêu hóa thức ăn hiệu quả. Hỗ trợ điều trị
+                    đầy bụng, khó tiêu, ăn không ngon miệng. Phù hợp cho cả người lớn và trẻ em.
+                </p>
+                <div class="actions">
+                    <button class="btn btn-primary" onclick="addCart('Men Tiêu Hóa')">
+                        <i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ
+                    </button>
+                    <button class="btn btn-outline" onclick="saveMedicine('Men Tiêu Hóa')">
+                        <i class="fa-solid fa-floppy-disk"></i> Lưu lịch sử
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="detail-box reveal">
+            <h3>Thông tin chi tiết</h3>
+            <table>
+                <tr><td><span class="spec-badge">Thành phần</span></td><td>Enzym tiêu hóa (Amylase, Protease, Lipase)</td></tr>
+                <tr><td><span class="spec-badge">Dạng bào chế</span></td><td>Gói bột</td></tr>
+                <tr><td><span class="spec-badge">Quy cách</span></td><td>Hộp 30 gói</td></tr>
+                <tr><td><span class="spec-badge">Nhà sản xuất</span></td><td>Công ty Dược phẩm TW</td></tr>
+                <tr><td><span class="spec-badge">Hạn sử dụng</span></td><td>24 tháng</td></tr>
+                <tr><td><span class="spec-badge">Bảo quản</span></td><td>Nơi khô ráo, nhiệt độ phòng</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Omeprazole -->
+    <div class="detail-section" id="omeprazole">
+        <div class="detail-layout reveal">
+            <div class="detail-gallery">
+                <img src="../assets/Omeprazole 20mg.jpg" alt="Omeprazole 20mg" style="width:100%;display:block;">
+                <div class="thumb-overlay">
+                    <span class="thumb-dot active"></span>
+                    <span class="thumb-dot"></span>
+                    <span class="thumb-dot"></span>
+                </div>
+            </div>
+            <div class="detail-info">
+                <span class="badge" style="background:var(--green);color:white;padding:4px 14px;border-radius:50px;font-size:12px;font-weight:600;display:inline-block;margin-bottom:12px;">Thuốc tiêu hóa</span>
+                <h1>Omeprazole 20mg</h1>
+                <div class="price-lg">75.000 VNĐ</div>
+                <p class="desc">
+                    Omeprazole là thuốc ức chế bơm proton, giảm tiết acid dạ dày. Điều trị trào ngược
+                    dạ dày - thực quản, viêm loét dạ dày - tá tràng, hội chứng Zollinger-Ellison.
+                </p>
+                <div class="actions">
+                    <button class="btn btn-primary" onclick="addCart('Omeprazole')">
+                        <i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ
+                    </button>
+                    <button class="btn btn-outline" onclick="saveMedicine('Omeprazole')">
+                        <i class="fa-solid fa-floppy-disk"></i> Lưu lịch sử
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="detail-box reveal">
+            <h3>Thông tin chi tiết</h3>
+            <table>
+                <tr><td><span class="spec-badge">Thành phần</span></td><td>Omeprazole 20mg</td></tr>
+                <tr><td><span class="spec-badge">Dạng bào chế</span></td><td>Viên nang</td></tr>
+                <tr><td><span class="spec-badge">Quy cách</span></td><td>Hộp 3 vỉ x 10 viên</td></tr>
+                <tr><td><span class="spec-badge">Nhà sản xuất</span></td><td>Dược phẩm Quốc tế</td></tr>
+                <tr><td><span class="spec-badge">Hạn sử dụng</span></td><td>36 tháng</td></tr>
+                <tr><td><span class="spec-badge">Bảo quản</span></td><td>Nơi khô ráo, tránh ánh sáng</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Berberin -->
+    <div class="detail-section" id="berberin">
+        <div class="detail-layout reveal">
+            <div class="detail-gallery">
+                <img src="../assets/Berberin.jpg" alt="Berberin" style="width:100%;display:block;">
+                <div class="thumb-overlay">
+                    <span class="thumb-dot active"></span>
+                    <span class="thumb-dot"></span>
+                    <span class="thumb-dot"></span>
+                </div>
+            </div>
+            <div class="detail-info">
+                <span class="badge" style="background:var(--green);color:white;padding:4px 14px;border-radius:50px;font-size:12px;font-weight:600;display:inline-block;margin-bottom:12px;">Thuốc tiêu hóa</span>
+                <h1>Berberin</h1>
+                <div class="price-lg">40.000 VNĐ</div>
+                <p class="desc">
+                    Berberin là kháng sinh thảo dược tự nhiên, điều trị tiêu chảy, viêm ruột,
+                    nhiễm khuẩn đường tiêu hóa. An toàn và lành tính cho mọi lứa tuổi.
+                </p>
+                <div class="actions">
+                    <button class="btn btn-primary" onclick="addCart('Berberin')">
+                        <i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ
+                    </button>
+                    <button class="btn btn-outline" onclick="saveMedicine('Berberin')">
+                        <i class="fa-solid fa-floppy-disk"></i> Lưu lịch sử
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="detail-box reveal">
+            <h3>Thông tin chi tiết</h3>
+            <table>
+                <tr><td><span class="spec-badge">Thành phần</span></td><td>Berberin clorid 50mg</td></tr>
+                <tr><td><span class="spec-badge">Dạng bào chế</span></td><td>Viên nén</td></tr>
+                <tr><td><span class="spec-badge">Quy cách</span></td><td>Hộp 10 vỉ x 10 viên</td></tr>
+                <tr><td><span class="spec-badge">Nhà sản xuất</span></td><td>Công ty Dược phẩm TW</td></tr>
+                <tr><td><span class="spec-badge">Hạn sử dụng</span></td><td>36 tháng</td></tr>
+                <tr><td><span class="spec-badge">Bảo quản</span></td><td>Nơi khô ráo, nhiệt độ phòng</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Thuốc ho Bổ Phế -->
+    <div class="detail-section" id="ho-bo-phe">
+        <div class="detail-layout reveal">
+            <div class="detail-gallery">
+                <img src="../assets/Thuốc Ho Bổ Phế.jpg" alt="Thuốc ho Bổ Phế" style="width:100%;display:block;">
+                <div class="thumb-overlay">
+                    <span class="thumb-dot active"></span>
+                    <span class="thumb-dot"></span>
+                    <span class="thumb-dot"></span>
+                </div>
+            </div>
+            <div class="detail-info">
+                <span class="badge" style="background:var(--green);color:white;padding:4px 14px;border-radius:50px;font-size:12px;font-weight:600;display:inline-block;margin-bottom:12px;">Thuốc hô hấp</span>
+                <h1>Thuốc Ho Bổ Phế</h1>
+                <div class="price-lg">35.000 VNĐ</div>
+                <p class="desc">
+                    Thuốc ho Bổ Phế với thành phần thảo dược giúp giảm ho, long đờm, làm dịu
+                    niêm mạc họng. An toàn cho người lớn và trẻ em trên 6 tuổi.
+                </p>
+                <div class="actions">
+                    <button class="btn btn-primary" onclick="addCart('Thuốc Ho Bổ Phế')">
+                        <i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ
+                    </button>
+                    <button class="btn btn-outline" onclick="saveMedicine('Thuốc Ho Bổ Phế')">
+                        <i class="fa-solid fa-floppy-disk"></i> Lưu lịch sử
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="detail-box reveal">
+            <h3>Thông tin chi tiết</h3>
+            <table>
+                <tr><td><span class="spec-badge">Thành phần</span></td><td>Thảo dược thiên nhiên</td></tr>
+                <tr><td><span class="spec-badge">Dạng bào chế</span></td><td>Si rô</td></tr>
+                <tr><td><span class="spec-badge">Quy cách</span></td><td>Chai 100ml</td></tr>
+                <tr><td><span class="spec-badge">Nhà sản xuất</span></td><td>Công ty Dược phẩm TW</td></tr>
+                <tr><td><span class="spec-badge">Hạn sử dụng</span></td><td>24 tháng</td></tr>
+                <tr><td><span class="spec-badge">Bảo quản</span></td><td>Nơi khô mát, tránh ánh sáng</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Siro Prospan -->
+    <div class="detail-section" id="siro-prospan">
+        <div class="detail-layout reveal">
+            <div class="detail-gallery">
+                <img src="../assets/Siro Ho Prospan.jpg" alt="Siro ho Prospan" style="width:100%;display:block;">
+                <div class="thumb-overlay">
+                    <span class="thumb-dot active"></span>
+                    <span class="thumb-dot"></span>
+                    <span class="thumb-dot"></span>
+                </div>
+            </div>
+            <div class="detail-info">
+                <span class="badge" style="background:var(--green);color:white;padding:4px 14px;border-radius:50px;font-size:12px;font-weight:600;display:inline-block;margin-bottom:12px;">Thuốc hô hấp</span>
+                <h1>Siro Ho Prospan</h1>
+                <div class="price-lg">60.000 VNĐ</div>
+                <p class="desc">
+                    Siro ho Prospan với chiết xuất từ lá thường xuân, giúp giảm ho và long đờm
+                    hiệu quả. An toàn cho trẻ em từ 1 tuổi, không đường, không màu nhân tạo.
+                </p>
+                <div class="actions">
+                    <button class="btn btn-primary" onclick="addCart('Siro Ho Prospan')">
+                        <i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ
+                    </button>
+                    <button class="btn btn-outline" onclick="saveMedicine('Siro Ho Prospan')">
+                        <i class="fa-solid fa-floppy-disk"></i> Lưu lịch sử
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="detail-box reveal">
+            <h3>Thông tin chi tiết</h3>
+            <table>
+                <tr><td><span class="spec-badge">Thành phần</span></td><td>Cao khô lá thường xuân</td></tr>
+                <tr><td><span class="spec-badge">Dạng bào chế</span></td><td>Si rô</td></tr>
+                <tr><td><span class="spec-badge">Quy cách</span></td><td>Chai 100ml</td></tr>
+                <tr><td><span class="spec-badge">Nhà sản xuất</span></td><td>Dược phẩm Quốc tế</td></tr>
+                <tr><td><span class="spec-badge">Hạn sử dụng</span></td><td>24 tháng</td></tr>
+                <tr><td><span class="spec-badge">Bảo quản</span></td><td>Nơi khô mát, nhiệt độ dưới 25°C</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Thuốc cảm tổng hợp -->
+    <div class="detail-section" id="thuoc-cam">
+        <div class="detail-layout reveal">
+            <div class="detail-gallery">
+                <img src="../assets/Thuốc Cảm Tổng Hợp.jpg" alt="Thuốc cảm tổng hợp" style="width:100%;display:block;">
+                <div class="thumb-overlay">
+                    <span class="thumb-dot active"></span>
+                    <span class="thumb-dot"></span>
+                    <span class="thumb-dot"></span>
+                </div>
+            </div>
+            <div class="detail-info">
+                <span class="badge" style="background:var(--green);color:white;padding:4px 14px;border-radius:50px;font-size:12px;font-weight:600;display:inline-block;margin-bottom:12px;">Thuốc hô hấp</span>
+                <h1>Thuốc Cảm Tổng Hợp</h1>
+                <div class="price-lg">28.000 VNĐ</div>
+                <p class="desc">
+                    Thuốc cảm tổng hợp giúp giảm nhanh các triệu chứng cảm cúm: sốt, đau đầu,
+                    sổ mũi, nghẹt mũi, đau nhức cơ thể. Phù hợp cho người lớn và trẻ em trên 12 tuổi.
+                </p>
+                <div class="actions">
+                    <button class="btn btn-primary" onclick="addCart('Thuốc Cảm')">
+                        <i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ
+                    </button>
+                    <button class="btn btn-outline" onclick="saveMedicine('Thuốc Cảm')">
+                        <i class="fa-solid fa-floppy-disk"></i> Lưu lịch sử
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="detail-box reveal">
+            <h3>Thông tin chi tiết</h3>
+            <table>
+                <tr><td><span class="spec-badge">Thành phần</span></td><td>Paracetamol, Chlorpheniramin, Dextromethorphan</td></tr>
+                <tr><td><span class="spec-badge">Dạng bào chế</span></td><td>Viên nén</td></tr>
+                <tr><td><span class="spec-badge">Quy cách</span></td><td>Hộp 10 vỉ x 10 viên</td></tr>
+                <tr><td><span class="spec-badge">Nhà sản xuất</span></td><td>Công ty Dược phẩm TW</td></tr>
+                <tr><td><span class="spec-badge">Hạn sử dụng</span></td><td>36 tháng</td></tr>
+                <tr><td><span class="spec-badge">Bảo quản</span></td><td>Nơi khô ráo, nhiệt độ dưới 30°C</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Cetirizin -->
+    <div class="detail-section" id="cetirizin">
+        <div class="detail-layout reveal">
+            <div class="detail-gallery">
+                <img src="../assets/Cetirizin 10mg.jpg" alt="Cetirizin 10mg" style="width:100%;display:block;">
+                <div class="thumb-overlay">
+                    <span class="thumb-dot active"></span>
+                    <span class="thumb-dot"></span>
+                    <span class="thumb-dot"></span>
+                </div>
+            </div>
+            <div class="detail-info">
+                <span class="badge" style="background:var(--green);color:white;padding:4px 14px;border-radius:50px;font-size:12px;font-weight:600;display:inline-block;margin-bottom:12px;">Thuốc dị ứng</span>
+                <h1>Cetirizin 10mg</h1>
+                <div class="price-lg">40.000 VNĐ</div>
+                <p class="desc">
+                    Cetirizin là kháng histamin thế hệ 2, giảm nhanh triệu chứng dị ứng như
+                    mề đay, mẩn ngứa, viêm mũi dị ứng. Ít gây buồn ngủ, dùng được ban ngày.
+                </p>
+                <div class="actions">
+                    <button class="btn btn-primary" onclick="addCart('Cetirizin')">
+                        <i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ
+                    </button>
+                    <button class="btn btn-outline" onclick="saveMedicine('Cetirizin')">
+                        <i class="fa-solid fa-floppy-disk"></i> Lưu lịch sử
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="detail-box reveal">
+            <h3>Thông tin chi tiết</h3>
+            <table>
+                <tr><td><span class="spec-badge">Thành phần</span></td><td>Cetirizin HCl 10mg</td></tr>
+                <tr><td><span class="spec-badge">Dạng bào chế</span></td><td>Viên nén</td></tr>
+                <tr><td><span class="spec-badge">Quy cách</span></td><td>Hộp 3 vỉ x 10 viên</td></tr>
+                <tr><td><span class="spec-badge">Nhà sản xuất</span></td><td>Công ty Dược phẩm TW</td></tr>
+                <tr><td><span class="spec-badge">Hạn sử dụng</span></td><td>36 tháng</td></tr>
+                <tr><td><span class="spec-badge">Bảo quản</span></td><td>Nơi khô ráo, nhiệt độ phòng</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Loratadin -->
+    <div class="detail-section" id="loratadin">
+        <div class="detail-layout reveal">
+            <div class="detail-gallery">
+                <img src="../assets/Loratadin 10mg.jpg" alt="Loratadin 10mg" style="width:100%;display:block;">
+                <div class="thumb-overlay">
+                    <span class="thumb-dot active"></span>
+                    <span class="thumb-dot"></span>
+                    <span class="thumb-dot"></span>
+                </div>
+            </div>
+            <div class="detail-info">
+                <span class="badge" style="background:var(--green);color:white;padding:4px 14px;border-radius:50px;font-size:12px;font-weight:600;display:inline-block;margin-bottom:12px;">Thuốc dị ứng</span>
+                <h1>Loratadin 10mg</h1>
+                <div class="price-lg">55.000 VNĐ</div>
+                <p class="desc">
+                    Loratadin là kháng histamin thế hệ mới, điều trị viêm mũi dị ứng, mề đay
+                    mạn tính. Không gây buồn ngủ, hiệu quả kéo dài 24 giờ.
+                </p>
+                <div class="actions">
+                    <button class="btn btn-primary" onclick="addCart('Loratadin')">
+                        <i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ
+                    </button>
+                    <button class="btn btn-outline" onclick="saveMedicine('Loratadin')">
+                        <i class="fa-solid fa-floppy-disk"></i> Lưu lịch sử
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="detail-box reveal">
+            <h3>Thông tin chi tiết</h3>
+            <table>
+                <tr><td><span class="spec-badge">Thành phần</span></td><td>Loratadin 10mg</td></tr>
+                <tr><td><span class="spec-badge">Dạng bào chế</span></td><td>Viên nén</td></tr>
+                <tr><td><span class="spec-badge">Quy cách</span></td><td>Hộp 3 vỉ x 10 viên</td></tr>
+                <tr><td><span class="spec-badge">Nhà sản xuất</span></td><td>Dược phẩm Quốc tế</td></tr>
+                <tr><td><span class="spec-badge">Hạn sử dụng</span></td><td>36 tháng</td></tr>
+                <tr><td><span class="spec-badge">Bảo quản</span></td><td>Nơi khô ráo, nhiệt độ dưới 25°C</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Ginkgo Biloba -->
+    <div class="detail-section" id="ginkgo-biloba">
+        <div class="detail-layout reveal">
+            <div class="detail-gallery">
+                <img src="../assets/Ginkgo Biloba 120mg.jpg" alt="Ginkgo Biloba 120mg" style="width:100%;display:block;">
+                <div class="thumb-overlay">
+                    <span class="thumb-dot active"></span>
+                    <span class="thumb-dot"></span>
+                    <span class="thumb-dot"></span>
+                </div>
+            </div>
+            <div class="detail-info">
+                <span class="badge" style="background:var(--green);color:white;padding:4px 14px;border-radius:50px;font-size:12px;font-weight:600;display:inline-block;margin-bottom:12px;">Thực phẩm chức năng</span>
+                <h1>Ginkgo Biloba 120mg</h1>
+                <div class="price-lg">200.000 VNĐ</div>
+                <p class="desc">
+                    Ginkgo Biloba chiết xuất từ cây bạch quả, tăng tuần hoàn máu não, cải thiện
+                    trí nhớ, giảm đau đầu, hoa mắt, chóng mặt. Hỗ trợ điều trị suy giảm trí nhớ ở người già.
+                </p>
+                <div class="actions">
+                    <button class="btn btn-primary" onclick="addCart('Ginkgo Biloba')">
+                        <i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ
+                    </button>
+                    <button class="btn btn-outline" onclick="saveMedicine('Ginkgo Biloba')">
+                        <i class="fa-solid fa-floppy-disk"></i> Lưu lịch sử
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="detail-box reveal">
+            <h3>Thông tin chi tiết</h3>
+            <table>
+                <tr><td><span class="spec-badge">Thành phần</span></td><td>Cao khô Ginkgo Biloba 120mg</td></tr>
+                <tr><td><span class="spec-badge">Dạng bào chế</span></td><td>Viên nang</td></tr>
+                <tr><td><span class="spec-badge">Quy cách</span></td><td>Lọ 60 viên</td></tr>
+                <tr><td><span class="spec-badge">Nhà sản xuất</span></td><td>Dược phẩm Quốc tế</td></tr>
+                <tr><td><span class="spec-badge">Hạn sử dụng</span></td><td>36 tháng</td></tr>
+                <tr><td><span class="spec-badge">Bảo quản</span></td><td>Nơi khô mát, nhiệt độ dưới 25°C</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Coenzyme Q10 -->
+    <div class="detail-section" id="co-q10">
+        <div class="detail-layout reveal">
+            <div class="detail-gallery">
+                <img src="../assets/Coenzyme Q10.jpg" alt="Coenzyme Q10" style="width:100%;display:block;">
+                <div class="thumb-overlay">
+                    <span class="thumb-dot active"></span>
+                    <span class="thumb-dot"></span>
+                    <span class="thumb-dot"></span>
+                </div>
+            </div>
+            <div class="detail-info">
+                <span class="badge" style="background:var(--green);color:white;padding:4px 14px;border-radius:50px;font-size:12px;font-weight:600;display:inline-block;margin-bottom:12px;">Thực phẩm chức năng</span>
+                <h1>Coenzyme Q10</h1>
+                <div class="price-lg">250.000 VNĐ</div>
+                <p class="desc">
+                    Coenzyme Q10 là chất chống oxy hóa mạnh, hỗ trợ tim mạch, tăng năng lượng
+                    tế bào. Giúp giảm nguy cơ bệnh tim, chống lão hóa, tốt cho người cao tuổi.
+                </p>
+                <div class="actions">
+                    <button class="btn btn-primary" onclick="addCart('Coenzyme Q10')">
+                        <i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ
+                    </button>
+                    <button class="btn btn-outline" onclick="saveMedicine('Coenzyme Q10')">
+                        <i class="fa-solid fa-floppy-disk"></i> Lưu lịch sử
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="detail-box reveal">
+            <h3>Thông tin chi tiết</h3>
+            <table>
+                <tr><td><span class="spec-badge">Thành phần</span></td><td>Coenzyme Q10 100mg</td></tr>
+                <tr><td><span class="spec-badge">Dạng bào chế</span></td><td>Viên nang mềm</td></tr>
+                <tr><td><span class="spec-badge">Quy cách</span></td><td>Lọ 30 viên</td></tr>
+                <tr><td><span class="spec-badge">Nhà sản xuất</span></td><td>Dược phẩm Quốc tế</td></tr>
+                <tr><td><span class="spec-badge">Hạn sử dụng</span></td><td>36 tháng</td></tr>
+                <tr><td><span class="spec-badge">Bảo quản</span></td><td>Nơi khô mát, tránh ánh sáng</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Dầu Gió -->
+    <div class="detail-section" id="dau-gio">
+        <div class="detail-layout reveal">
+            <div class="detail-gallery">
+                <img src="../assets/Dầu Gió.jpg" alt="Dầu gió" style="width:100%;display:block;">
+                <div class="thumb-overlay">
+                    <span class="thumb-dot active"></span>
+                    <span class="thumb-dot"></span>
+                    <span class="thumb-dot"></span>
+                </div>
+            </div>
+            <div class="detail-info">
+                <span class="badge" style="background:var(--green);color:white;padding:4px 14px;border-radius:50px;font-size:12px;font-weight:600;display:inline-block;margin-bottom:12px;">Thuốc đông y</span>
+                <h1>Dầu Gió</h1>
+                <div class="price-lg">25.000 VNĐ</div>
+                <p class="desc">
+                    Dầu gió với tinh dầu thiên nhiên như menthol, camphor, eucalyptus. Dùng xoa bóp
+                    giảm đau nhức cơ bắp, cảm cúm, đầy hơi, khó tiêu. Sản phẩm truyền thống quen thuộc.
+                </p>
+                <div class="actions">
+                    <button class="btn btn-primary" onclick="addCart('Dầu Gió')">
+                        <i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ
+                    </button>
+                    <button class="btn btn-outline" onclick="saveMedicine('Dầu Gió')">
+                        <i class="fa-solid fa-floppy-disk"></i> Lưu lịch sử
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="detail-box reveal">
+            <h3>Thông tin chi tiết</h3>
+            <table>
+                <tr><td><span class="spec-badge">Thành phần</span></td><td>Menthol, Camphor, Tinh dầu khuynh diệp</td></tr>
+                <tr><td><span class="spec-badge">Dạng bào chế</span></td><td>Dầu xoa</td></tr>
+                <tr><td><span class="spec-badge">Quy cách</span></td><td>Chai 15ml</td></tr>
+                <tr><td><span class="spec-badge">Nhà sản xuất</span></td><td>Công ty Dược phẩm TW</td></tr>
+                <tr><td><span class="spec-badge">Hạn sử dụng</span></td><td>48 tháng</td></tr>
+                <tr><td><span class="spec-badge">Bảo quản</span></td><td>Nơi khô mát, tránh lửa</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Cao xương khớp -->
+    <div class="detail-section" id="cao-xuong-khop">
+        <div class="detail-layout reveal">
+            <div class="detail-gallery">
+                <img src="../assets/Cao Xương Khớp.jpg" alt="Cao xương khớp" style="width:100%;display:block;">
+                <div class="thumb-overlay">
+                    <span class="thumb-dot active"></span>
+                    <span class="thumb-dot"></span>
+                    <span class="thumb-dot"></span>
+                </div>
+            </div>
+            <div class="detail-info">
+                <span class="badge" style="background:var(--green);color:white;padding:4px 14px;border-radius:50px;font-size:12px;font-weight:600;display:inline-block;margin-bottom:12px;">Thuốc đông y</span>
+                <h1>Cao Xương Khớp</h1>
+                <div class="price-lg">80.000 VNĐ</div>
+                <p class="desc">
+                    Cao xương khớp từ thảo dược thiên nhiên, giúp bổ xương khớp, giảm đau nhức
+                    do thoái hóa khớp, viêm khớp. Hỗ trợ điều trị và phòng ngừa các bệnh về xương khớp.
+                </p>
+                <div class="actions">
+                    <button class="btn btn-primary" onclick="addCart('Cao Xương Khớp')">
+                        <i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ
+                    </button>
+                    <button class="btn btn-outline" onclick="saveMedicine('Cao Xương Khớp')">
+                        <i class="fa-solid fa-floppy-disk"></i> Lưu lịch sử
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="detail-box reveal">
+            <h3>Thông tin chi tiết</h3>
+            <table>
+                <tr><td><span class="spec-badge">Thành phần</span></td><td>Cao thảo dược (độc lực, quạ, xấu hổ, cốt toái bổ)</td></tr>
+                <tr><td><span class="spec-badge">Dạng bào chế</span></td><td>Cao mềm</td></tr>
+                <tr><td><span class="spec-badge">Quy cách</span></td><td>Lọ 50g</td></tr>
+                <tr><td><span class="spec-badge">Nhà sản xuất</span></td><td>Dược phẩm Đông y</td></tr>
+                <tr><td><span class="spec-badge">Hạn sử dụng</span></td><td>24 tháng</td></tr>
+                <tr><td><span class="spec-badge">Bảo quản</span></td><td>Nơi khô ráo, nhiệt độ phòng</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Trà nhân trần -->
+    <div class="detail-section" id="nhan-tran">
+        <div class="detail-layout reveal">
+            <div class="detail-gallery">
+                <img src="../assets/Trà Nhân Trần.jpg" alt="Trà nhân trần" style="width:100%;display:block;">
+                <div class="thumb-overlay">
+                    <span class="thumb-dot active"></span>
+                    <span class="thumb-dot"></span>
+                    <span class="thumb-dot"></span>
+                </div>
+            </div>
+            <div class="detail-info">
+                <span class="badge" style="background:var(--green);color:white;padding:4px 14px;border-radius:50px;font-size:12px;font-weight:600;display:inline-block;margin-bottom:12px;">Thuốc đông y</span>
+                <h1>Trà Nhân Trần</h1>
+                <div class="price-lg">45.000 VNĐ</div>
+                <p class="desc">
+                    Trà nhân trần giúp mát gan, giải độc, lợi tiểu. Hỗ trợ điều trị viêm gan,
+                    men gan cao, vàng da. Thức uống thảo dược lành tính cho sức khỏe.
+                </p>
+                <div class="actions">
+                    <button class="btn btn-primary" onclick="addCart('Trà Nhân Trần')">
+                        <i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ
+                    </button>
+                    <button class="btn btn-outline" onclick="saveMedicine('Trà Nhân Trần')">
+                        <i class="fa-solid fa-floppy-disk"></i> Lưu lịch sử
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="detail-box reveal">
+            <h3>Thông tin chi tiết</h3>
+            <table>
+                <tr><td><span class="spec-badge">Thành phần</span></td><td>100% cây nhân trần khô</td></tr>
+                <tr><td><span class="spec-badge">Dạng bào chế</span></td><td>Trà túi lọc</td></tr>
+                <tr><td><span class="spec-badge">Quy cách</span></td><td>Hộp 20 túi lọc</td></tr>
+                <tr><td><span class="spec-badge">Nhà sản xuất</span></td><td>Dược phẩm Đông y</td></tr>
+                <tr><td><span class="spec-badge">Hạn sử dụng</span></td><td>24 tháng</td></tr>
+                <tr><td><span class="spec-badge">Bảo quản</span></td><td>Nơi khô ráo, tránh ẩm</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Băng cá nhân -->
+    <div class="detail-section" id="bang-ca-nhan">
+        <div class="detail-layout reveal">
+            <div class="detail-gallery">
+                <img src="../assets/Băng Cá Nhân.jpg" alt="Băng cá nhân" style="width:100%;display:block;">
+                <div class="thumb-overlay">
+                    <span class="thumb-dot active"></span>
+                    <span class="thumb-dot"></span>
+                    <span class="thumb-dot"></span>
+                </div>
+            </div>
+            <div class="detail-info">
+                <span class="badge" style="background:#e67e22;color:white;padding:4px 14px;border-radius:50px;font-size:12px;font-weight:600;display:inline-block;margin-bottom:12px;">Dụng cụ y tế</span>
+                <h1>Băng Cá Nhân</h1>
+                <div class="price-lg">25.000 VNĐ</div>
+                <p class="desc">
+                    Băng cá nhân chống thấm, thoáng khí, bảo vệ vết thương nhỏ khỏi bụi bẩn
+                    và vi khuẩn. Đệm mút êm ái, keo dính dịu nhẹ. Hộp 20 miếng nhiều kích cỡ.
+                </p>
+                <div class="actions">
+                    <button class="btn btn-primary" onclick="addCart('Băng Cá Nhân')">
+                        <i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ
+                    </button>
+                    <button class="btn btn-outline" onclick="saveMedicine('Băng Cá Nhân')">
+                        <i class="fa-solid fa-floppy-disk"></i> Lưu lịch sử
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="detail-box reveal">
+            <h3>Thông tin chi tiết</h3>
+            <table>
+                <tr><td><span class="spec-badge">Chất liệu</span></td><td>Vải không dệt, keo acrylic</td></tr>
+                <tr><td><span class="spec-badge">Kích cỡ</span></td><td>20 miếng (72x19mm, 60x25mm)</td></tr>
+                <tr><td><span class="spec-badge">Quy cách</span></td><td>Hộp 20 miếng</td></tr>
+                <tr><td><span class="spec-badge">Nhà sản xuất</span></td><td>Thiết bị Y tế Việt</td></tr>
+                <tr><td><span class="spec-badge">Hạn sử dụng</span></td><td>36 tháng</td></tr>
+                <tr><td><span class="spec-badge">Bảo quản</span></td><td>Nơi khô ráo, nhiệt độ phòng</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Nước muối sinh lý -->
+    <div class="detail-section" id="nuoc-muoi">
+        <div class="detail-layout reveal">
+            <div class="detail-gallery">
+                <img src="../assets/Nước Muối Sinh Lý.jpg" alt="Nước muối sinh lý" style="width:100%;display:block;">
+                <div class="thumb-overlay">
+                    <span class="thumb-dot active"></span>
+                    <span class="thumb-dot"></span>
+                    <span class="thumb-dot"></span>
+                </div>
+            </div>
+            <div class="detail-info">
+                <span class="badge" style="background:#e67e22;color:white;padding:4px 14px;border-radius:50px;font-size:12px;font-weight:600;display:inline-block;margin-bottom:12px;">Dụng cụ y tế</span>
+                <h1>Nước Muối Sinh Lý</h1>
+                <div class="price-lg">15.000 VNĐ</div>
+                <p class="desc">
+                    Nước muối sinh lý NaCl 0.9% dùng vệ sinh mũi, họng hàng ngày. An toàn cho
+                    trẻ sơ sinh, trẻ nhỏ và người lớn. Giúp làm sạch và thông thoáng đường thở.
+                </p>
+                <div class="actions">
+                    <button class="btn btn-primary" onclick="addCart('Nước Muối Sinh Lý')">
+                        <i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ
+                    </button>
+                    <button class="btn btn-outline" onclick="saveMedicine('Nước Muối Sinh Lý')">
+                        <i class="fa-solid fa-floppy-disk"></i> Lưu lịch sử
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="detail-box reveal">
+            <h3>Thông tin chi tiết</h3>
+            <table>
+                <tr><td><span class="spec-badge">Thành phần</span></td><td>NaCl 0.9%, nước tinh khiết</td></tr>
+                <tr><td><span class="spec-badge">Dạng</span></td><td>Dung dịch</td></tr>
+                <tr><td><span class="spec-badge">Quy cách</span></td><td>Chai 100ml</td></tr>
+                <tr><td><span class="spec-badge">Nhà sản xuất</span></td><td>Thiết bị Y tế Việt</td></tr>
+                <tr><td><span class="spec-badge">Hạn sử dụng</span></td><td>24 tháng</td></tr>
+                <tr><td><span class="spec-badge">Bảo quản</span></td><td>Nhiệt độ phòng, tránh ánh sáng</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Bông y tế -->
+    <div class="detail-section" id="bong-y-te">
+        <div class="detail-layout reveal">
+            <div class="detail-gallery">
+                <img src="../assets/Bông Y Tế.jpg" alt="Bông y tế" style="width:100%;display:block;">
+                <div class="thumb-overlay">
+                    <span class="thumb-dot active"></span>
+                    <span class="thumb-dot"></span>
+                    <span class="thumb-dot"></span>
+                </div>
+            </div>
+            <div class="detail-info">
+                <span class="badge" style="background:#e67e22;color:white;padding:4px 14px;border-radius:50px;font-size:12px;font-weight:600;display:inline-block;margin-bottom:12px;">Dụng cụ y tế</span>
+                <h1>Bông Y Tế</h1>
+                <div class="price-lg">30.000 VNĐ</div>
+                <p class="desc">
+                    Bông y tế thấm hút cao, mềm mại, không xơ. Dùng để lau rửa vết thương,
+                    thấm thuốc sát trùng, vệ sinh da trước tiêm. Gói 100g tiện lợi cho gia đình.
+                </p>
+                <div class="actions">
+                    <button class="btn btn-primary" onclick="addCart('Bông Y Tế')">
+                        <i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ
+                    </button>
+                    <button class="btn btn-outline" onclick="saveMedicine('Bông Y Tế')">
+                        <i class="fa-solid fa-floppy-disk"></i> Lưu lịch sử
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="detail-box reveal">
+            <h3>Thông tin chi tiết</h3>
+            <table>
+                <tr><td><span class="spec-badge">Chất liệu</span></td><td>Bông thiên nhiên tiệt trùng</td></tr>
+                <tr><td><span class="spec-badge">Quy cách</span></td><td>Gói 100g</td></tr>
+                <tr><td><span class="spec-badge">Nhà sản xuất</span></td><td>Thiết bị Y tế Việt</td></tr>
+                <tr><td><span class="spec-badge">Hạn sử dụng</span></td><td>60 tháng</td></tr>
+                <tr><td><span class="spec-badge">Bảo quản</span></td><td>Nơi khô ráo, sạch sẽ</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Khẩu trang y tế -->
+    <div class="detail-section" id="khau-trang">
+        <div class="detail-layout reveal">
+            <div class="detail-gallery">
+                <img src="../assets/khẩu trang.jpg" alt="Khẩu trang y tế" style="width:100%;display:block;">
+                <div class="thumb-overlay">
+                    <span class="thumb-dot active"></span>
+                    <span class="thumb-dot"></span>
+                    <span class="thumb-dot"></span>
+                </div>
+            </div>
+            <div class="detail-info">
+                <span class="badge" style="background:#8e44ad;color:white;padding:4px 14px;border-radius:50px;font-size:12px;font-weight:600;display:inline-block;margin-bottom:12px;">Bảo hộ</span>
+                <h1>Khẩu Trang Y Tế</h1>
+                <div class="price-lg">45.000 VNĐ</div>
+                <p class="desc">
+                    Khẩu trang y tế 4 lớp lọc, bảo vệ hô hấp khỏi bụi mịn, vi khuẩn và giọt bắn.
+                    Đeo thoải mái, dây thun êm, thanh nẹp mũi giúp ôm sát khuôn mặt.
+                </p>
+                <div class="actions">
+                    <button class="btn btn-primary" onclick="addCart('Khẩu Trang Y Tế')">
+                        <i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ
+                    </button>
+                    <button class="btn btn-outline" onclick="saveMedicine('Khẩu Trang Y Tế')">
+                        <i class="fa-solid fa-floppy-disk"></i> Lưu lịch sử
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="detail-box reveal">
+            <h3>Thông tin chi tiết</h3>
+            <table>
+                <tr><td><span class="spec-badge">Chất liệu</span></td><td>Vải không dệt 4 lớp</td></tr>
+                <tr><td><span class="spec-badge">Quy cách</span></td><td>Hộp 50 cái</td></tr>
+                <tr><td><span class="spec-badge">Nhà sản xuất</span></td><td>Thiết bị Y tế Việt</td></tr>
+                <tr><td><span class="spec-badge">Hạn sử dụng</span></td><td>60 tháng</td></tr>
+                <tr><td><span class="spec-badge">Bảo quản</span></td><td>Nơi khô ráo, sạch sẽ</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- BCS -->
+    <div class="detail-section" id="bcs">
+        <div class="detail-layout reveal">
+            <div class="detail-gallery">
+                <img src="../assets/bao cao su.jpg" alt="BCS Cao Cấp" style="width:100%;display:block;">
+                <div class="thumb-overlay">
+                    <span class="thumb-dot active"></span>
+                    <span class="thumb-dot"></span>
+                    <span class="thumb-dot"></span>
+                </div>
+            </div>
+            <div class="detail-info">
+                <span class="badge" style="background:#8e44ad;color:white;padding:4px 14px;border-radius:50px;font-size:12px;font-weight:600;display:inline-block;margin-bottom:12px;">Bảo hộ</span>
+                <h1>BCS Cao Cấp</h1>
+                <div class="price-lg">85.000 VNĐ</div>
+                <p class="desc">
+                    Bao cao su cao cấp nhập khẩu, chất lượng cao, êm ái và an toàn. Được kiểm định
+                    nghiêm ngặt, bảo vệ sức khỏe sinh sản. Đóng gói kín đáo, tiện lợi.
+                </p>
+                <div class="actions">
+                    <button class="btn btn-primary" onclick="addCart('BCS Cao Cấp')">
+                        <i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ
+                    </button>
+                    <button class="btn btn-outline" onclick="saveMedicine('BCS Cao Cấp')">
+                        <i class="fa-solid fa-floppy-disk"></i> Lưu lịch sử
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="detail-box reveal">
+            <h3>Thông tin chi tiết</h3>
+            <table>
+                <tr><td><span class="spec-badge">Chất liệu</span></td><td>Cao su thiên nhiên</td></tr>
+                <tr><td><span class="spec-badge">Quy cách</span></td><td>Hộp 12 cái</td></tr>
+                <tr><td><span class="spec-badge">Nhà sản xuất</span></td><td>Thiết bị Y tế Việt</td></tr>
+                <tr><td><span class="spec-badge">Hạn sử dụng</span></td><td>60 tháng</td></tr>
+                <tr><td><span class="spec-badge">Bảo quản</span></td><td>Nơi khô ráo, tránh nhiệt độ cao</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Găng tay y tế -->
+    <div class="detail-section" id="gang-tay">
+        <div class="detail-layout reveal">
+            <div class="detail-gallery">
+                <img src="../assets/Găng Tay Y Tế.jpg" alt="Găng tay y tế" style="width:100%;display:block;">
+                <div class="thumb-overlay">
+                    <span class="thumb-dot active"></span>
+                    <span class="thumb-dot"></span>
+                    <span class="thumb-dot"></span>
+                </div>
+            </div>
+            <div class="detail-info">
+                <span class="badge" style="background:#8e44ad;color:white;padding:4px 14px;border-radius:50px;font-size:12px;font-weight:600;display:inline-block;margin-bottom:12px;">Bảo hộ</span>
+                <h1>Găng Tay Y Tế</h1>
+                <div class="price-lg">35.000 VNĐ</div>
+                <p class="desc">
+                    Găng tay y tế cao su không bột, dùng một lần. Bảo vệ tay khi tiếp xúc vết thương,
+                    vệ sinh, chăm sóc người bệnh. Kích cỡ vừa vặn, êm tay.
+                </p>
+                <div class="actions">
+                    <button class="btn btn-primary" onclick="addCart('Găng Tay Y Tế')">
+                        <i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ
+                    </button>
+                    <button class="btn btn-outline" onclick="saveMedicine('Găng Tay Y Tế')">
+                        <i class="fa-solid fa-floppy-disk"></i> Lưu lịch sử
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="detail-box reveal">
+            <h3>Thông tin chi tiết</h3>
+            <table>
+                <tr><td><span class="spec-badge">Chất liệu</span></td><td>Cao su không bột</td></tr>
+                <tr><td><span class="spec-badge">Quy cách</span></td><td>Hộp 100 cái</td></tr>
+                <tr><td><span class="spec-badge">Kích cỡ</span></td><td>Size M</td></tr>
+                <tr><td><span class="spec-badge">Nhà sản xuất</span></td><td>Thiết bị Y tế Việt</td></tr>
+                <tr><td><span class="spec-badge">Hạn sử dụng</span></td><td>60 tháng</td></tr>
+                <tr><td><span class="spec-badge">Bảo quản</span></td><td>Nơi khô ráo, nhiệt độ phòng</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Phần Rating + Reminder chung -->
+    <div class="detail-section" style="padding-top:0;">
+        <div class="detail-box reveal text-center" style="text-align:center;">
+            <h3>Đánh giá sản phẩm</h3>
+            <div style="font-size:28px;cursor:pointer;margin:12px 0;">
+                <span onclick="rateProduct(1)">⭐</span>
+                <span onclick="rateProduct(2)">⭐</span>
+                <span onclick="rateProduct(3)">⭐</span>
+                <span onclick="rateProduct(4)">⭐</span>
+                <span onclick="rateProduct(5)">⭐</span>
+            </div>
+            <p id="rating" style="font-size:20px;"></p>
+        </div>
+
+        <div class="detail-box reveal" style="margin-top:24px;">
+            <h3>Nhắc lịch uống thuốc</h3>
+            <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                <input type="text" id="medicineName" placeholder="Tên thuốc" style="flex:1;min-width:180px;">
+                <input type="time" id="medicineTime" style="flex:0 0 auto;width:160px;">
+                <button class="btn btn-primary" onclick="addReminder()"><i class="fa-solid fa-bell"></i> Thêm</button>
+            </div>
+            <ul id="reminderList" style="list-style:none;margin-top:16px;"></ul>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>Duy Khôi Pharmacy</h3>
+                <p>Smart Pharmacy 4.0 - Chăm sóc sức khỏe toàn diện bằng công nghệ thông minh.</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="#"><i class="fa-brands fa-zalo"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Liên kết</h4>
+                <ul class="footer-links">
+                    <li><a href="../index.html">Trang chủ</a></li>
+                    <li><a href="gioi-thieu.html">Giới thiệu</a></li>
+                    <li><a href="san-pham.html">Sản phẩm</a></li>
+                    <li><a href="tin-tuc.html">Tin tức</a></li>
+                    <li><a href="lien-he.html">AI Tư vấn</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Giờ làm việc</h4>
+                <p><i class="fa-regular fa-clock"></i> T2 - T7: 7:00 - 21:00</p>
+                <p><i class="fa-regular fa-clock"></i> CN: 8:00 - 17:00</p>
+                <p><i class="fa-solid fa-robot"></i> AI Tư vấn: 24/7</p>
+                <p><i class="fa-solid fa-location-dot"></i> Trà Vinh, Việt Nam</p>
+            </div>
+            <div class="footer-col">
+                <h4>Đăng ký</h4>
+                <p>Nhận tin khuyến mãi và kiến thức sức khỏe mỗi tuần.</p>
+                <div class="footer-newsletter">
+                    <input type="email" placeholder="Email của bạn...">
+                    <button><i class="fa-solid fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Duy Khôi Smart Pharmacy. Tất cả quyền được bảo lưu.</p>
+        </div>
+    </footer>
+
+    <div class="clock-widget" id="clock"></div>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>

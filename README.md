@@ -8,12 +8,20 @@
 .
 ├── .git/
 ├── assets/
-│   └── thesis/
-│       └── template_thesis.dotx
+│   ├── thesis/
+│   │   └── template_thesis.dotx
+│   ├── 1.jpeg - 7.jpg, banner.jpg, logo.jpg
 ├── css/
+│   └── style.css
 ├── html/
+│   ├── gioi-thieu.html          (Giới thiệu)
+│   ├── san-pham.html            (Sản phẩm)
+│   ├── chi-tiet.html            (Chi tiết sản phẩm)
+│   ├── lien-he.html             (AI Tư vấn)
+│   └── tin-tuc.html             (Tin tức sức khỏe)
 ├── js/
-├── index.html
+│   └── script.js
+├── index.html                   (Trang chủ)
 └── README.md
 ```
 
@@ -55,7 +63,6 @@ Ví dụ:
 
 ```text
 css/style.css
-css/responsive.css
 ```
 
 Các tập tin trong thư mục này dùng để thiết kế bố cục, màu sắc, font chữ, khoảng cách, hiệu ứng hiển thị và khả năng tương thích trên các thiết bị khác nhau.
@@ -69,9 +76,11 @@ Thư mục chứa các trang HTML thành phần của website.
 Ví dụ:
 
 ```text
-html/about.html
-html/contact.html
-html/product.html
+html/gioi-thieu.html
+html/san-pham.html
+html/chi-tiet.html
+html/lien-he.html
+html/tin-tuc.html
 ```
 
 Các trang HTML trong thư mục này được sử dụng để xây dựng các nội dung riêng biệt của website ngoài trang chính `index.html`.
@@ -85,8 +94,7 @@ Thư mục chứa các tập tin JavaScript dùng để xử lý tương tác tr
 Ví dụ:
 
 ```text
-js/main.js
-js/validation.js
+js/script.js
 ```
 
 Các tập tin JavaScript có thể dùng để:
@@ -175,10 +183,10 @@ Sinh viên cần nộp đầy đủ các nội dung sau:
 Sinh viên cập nhật thông tin cá nhân tại đây:
 
 ```text
-Họ và tên:
-Mã số sinh viên:
-Lớp:
-Tên đề tài:
-Liên kết GitHub repository:
-Liên kết GitHub Pages:
+Họ và tên:NGUYỄN DUY KHÔI
+Mã số sinh viên:110124098
+Lớp:DA24TTC
+Tên đề tài:THIẾT KẾ WEBSITE KINH DOANH HIỆU THUỐC DUY KHÔI-SMATR PHARMACY 4.0 
+Liên kết GitHub repository:D
+Liên kết GitHub Pages:https://tkw-22526.github.io/final-test-web-design-nguyenduykhoi1412/
 ```

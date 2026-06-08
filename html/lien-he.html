@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Tư vấn - Duy Khôi Pharmacy</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <button class="theme-fab" onclick="toggleDarkMode()"><i class="fa-solid fa-moon"></i></button>
+    <button id="topBtn" onclick="backToTop()"><i class="fa-solid fa-arrow-up"></i></button>
+    <button class="cart-fab" onclick="showCart()">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span class="count" id="cartCount">0</span>
+    </button>
+
+    <header>
+        <div class="logo-area">
+            <img src="../assets/logo.jpg" class="logo" alt="Duy Khôi Pharmacy">
+            <div>
+                <h2>Duy Khôi</h2>
+                <p>Smart Pharmacy</p>
+            </div>
+        </div>
+        <div class="user-greet" id="userGreeting" style="display:none">
+            <i class="fa-solid fa-circle-user"></i>
+            <span class="name" id="userName"></span>
+            <button class="logout-btn" onclick="logout()" title="Đăng xuất"><i class="fa-solid fa-right-from-bracket"></i></button>
+        </div>
+        <div class="menu-toggle" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></div>
+        <nav id="navMenu">
+            <a href="../index.html">Trang chủ</a>
+            <a href="gioi-thieu.html">Giới thiệu</a>
+            <a href="san-pham.html">Sản phẩm</a>
+            <a href="tin-tuc.html">Tin tức</a>
+            <a href="chi-tiet.html">Chi tiết</a>
+            <a href="lien-he.html" class="active">AI Tư vấn</a>
+            <a href="dang-nhap.html">Tài khoản</a>
+        </nav>
+    </header>
+
+    <section class="page-hero">
+        <h1>AI Tư Vấn Sức Khỏe</h1>
+        <p>Hỗ trợ tư vấn triệu chứng 24/7 - Nhanh chóng & Tiện lợi</p>
+    </section>
+
+    <div class="chat-wrap">
+        <div class="chat-card reveal">
+            <div class="text-center" style="margin-bottom:24px;">
+                <i class="fa-solid fa-robot" style="font-size:56px;color:var(--green);"></i>
+                <h2 style="color:var(--green);margin-top:8px;font-size:24px;">AI Tư Vấn Thông Minh</h2>
+                <p style="color:var(--gray-500);font-size:14px;">Nhập triệu chứng để được tư vấn nhanh</p>
+            </div>
+
+            <div class="chat-msg ai">
+                <strong>🤖 AI:</strong> Chào bạn! Tôi là AI tư vấn của Nhà Thuốc Duy Khôi. 
+                Hãy nhập triệu chứng (ho, sốt, đau đầu...) để tôi hỗ trợ bạn nhé!
+            </div>
+
+            <div class="chat-msg user" id="answer" style="display:none;"></div>
+
+            <div class="chat-input-wrap">
+                <input type="text" id="question" placeholder="Nhập triệu chứng của bạn..." onkeypress="handleChatKey(event)">
+                <button class="btn btn-primary" onclick="chatAI()">
+                    <i class="fa-solid fa-paper-plane"></i> Gửi
+                </button>
+            </div>
+
+            <div class="chat-hints">
+                <span onclick="setHint('ho')">🤧 Ho</span>
+                <span onclick="setHint('sốt')">🌡️ Sốt</span>
+                <span onclick="setHint('đau đầu')">🤕 Đau đầu</span>
+                <span onclick="setHint('đau bụng')">🤢 Đau bụng</span>
+                <span onclick="setHint('dị ứng')">🤧 Dị ứng</span>
+                <span onclick="setHint('cảm cúm')">🤒 Cảm cúm</span>
+                <span onclick="setHint('mất ngủ')">😴 Mất ngủ</span>
+                <span onclick="setHint('huyết áp')">💓 Huyết áp</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="chat-wrap" style="margin-top:-20px;">
+        <div class="chat-card reveal">
+            <div class="text-center" style="margin-bottom:16px;">
+                <i class="fa-solid fa-user" style="font-size:48px;color:var(--green);"></i>
+                <h3 style="color:var(--green);margin-top:8px;">Chế Độ Người Cao Tuổi</h3>
+                <p style="color:var(--gray-500);font-size:14px;">Nhập tuổi để tự động phóng to giao diện</p>
+            </div>
+            <div style="display:flex;gap:12px;">
+                <input type="number" id="age" placeholder="Nhập tuổi của bạn..." style="flex:1;margin-bottom:0;">
+                <button class="btn btn-primary" onclick="checkAge()" style="white-space:nowrap;">
+                    <i class="fa-solid fa-check"></i> Kiểm tra
+                </button>
+            </div>
+            <div id="ageStatus" class="status-msg"></div>
+        </div>
+    </div>
+
+    <section class="features-section">
+        <div class="text-center reveal">
+            <div class="section-label">Tính năng</div>
+            <h2 class="section-title">AI Tư Vấn <span class="highlight">Thông Minh</span></h2>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card reveal stagger-1">
+                <div class="icon-wrap"><i class="fa-solid fa-clock"></i></div>
+                <h3>Hoạt động 24/7</h3>
+                <p>AI luôn sẵn sàng tư vấn bất kể ngày đêm, kể cả ngoài giờ hành chính.</p>
+            </div>
+            <div class="feature-card reveal stagger-2">
+                <div class="icon-wrap"><i class="fa-solid fa-shield"></i></div>
+                <h3>Bảo mật thông tin</h3>
+                <p>Mọi thông tin sức khỏe của bạn được bảo mật tuyệt đối, không lưu trữ.</p>
+            </div>
+            <div class="feature-card reveal stagger-3">
+                <div class="icon-wrap"><i class="fa-solid fa-flask"></i></div>
+                <h3>Dựa trên y học</h3>
+                <p>Thông tin tư vấn dựa trên kiến thức y khoa chuẩn, cập nhật thường xuyên.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>Duy Khôi Pharmacy</h3>
+                <p>Smart Pharmacy 4.0 - Chăm sóc sức khỏe toàn diện bằng công nghệ thông minh.</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="#"><i class="fa-brands fa-zalo"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Liên kết</h4>
+                <ul class="footer-links">
+                    <li><a href="../index.html">Trang chủ</a></li>
+                    <li><a href="gioi-thieu.html">Giới thiệu</a></li>
+                    <li><a href="san-pham.html">Sản phẩm</a></li>
+                    <li><a href="tin-tuc.html">Tin tức</a></li>
+                    <li><a href="lien-he.html">AI Tư vấn</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Giờ làm việc</h4>
+                <p><i class="fa-regular fa-clock"></i> T2 - T7: 7:00 - 21:00</p>
+                <p><i class="fa-regular fa-clock"></i> CN: 8:00 - 17:00</p>
+                <p><i class="fa-solid fa-robot"></i> AI Tư vấn: 24/7</p>
+                <p><i class="fa-solid fa-location-dot"></i> Trà Vinh, Việt Nam</p>
+            </div>
+            <div class="footer-col">
+                <h4>Đăng ký</h4>
+                <p>Nhận tin khuyến mãi và kiến thức sức khỏe mỗi tuần.</p>
+                <div class="footer-newsletter">
+                    <input type="email" placeholder="Email của bạn...">
+                    <button><i class="fa-solid fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Duy Khôi Smart Pharmacy. Tất cả quyền được bảo lưu.</p>
+        </div>
+    </footer>
+
+    <div class="clock-widget" id="clock"></div>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>

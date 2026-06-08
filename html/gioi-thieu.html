@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giới thiệu - Duy Khôi Pharmacy</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <button class="theme-fab" onclick="toggleDarkMode()">
+        <i class="fa-solid fa-moon"></i>
+    </button>
+    <button id="topBtn" onclick="backToTop()"><i class="fa-solid fa-arrow-up"></i></button>
+    <button class="cart-fab" onclick="showCart()">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span class="count" id="cartCount">0</span>
+    </button>
+
+    <header>
+        <div class="logo-area">
+            <img src="../assets/logo.jpg" class="logo" alt="Duy Khôi Pharmacy">
+            <div>
+                <h2>Duy Khôi</h2>
+                <p>Smart Pharmacy</p>
+            </div>
+        </div>
+        <div class="user-greet" id="userGreeting" style="display:none">
+            <i class="fa-solid fa-circle-user"></i>
+            <span class="name" id="userName"></span>
+            <button class="logout-btn" onclick="logout()" title="Đăng xuất"><i class="fa-solid fa-right-from-bracket"></i></button>
+        </div>
+        <div class="menu-toggle" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></div>
+        <nav id="navMenu">
+            <a href="../index.html">Trang chủ</a>
+            <a href="gioi-thieu.html" class="active">Giới thiệu</a>
+            <a href="san-pham.html">Sản phẩm</a>
+            <a href="tin-tuc.html">Tin tức</a>
+            <a href="chi-tiet.html">Chi tiết</a>
+            <a href="lien-he.html">AI Tư vấn</a>
+            <a href="dang-nhap.html">Tài khoản</a>
+        </nav>
+    </header>
+
+    <section class="page-hero">
+        <h1>Về Chúng Tôi</h1>
+        <p>Tìm hiểu về Nhà Thuốc Duy Khôi - Smart Pharmacy 4.0</p>
+    </section>
+
+    <div class="stats-wrap">
+        <div class="stats-grid">
+            <div class="stat-card reveal stagger-1">
+                <i class="fa-solid fa-users"></i>
+                <h2 id="customerCount">0</h2>
+                <p>Khách hàng</p>
+            </div>
+            <div class="stat-card reveal stagger-2">
+                <i class="fa-solid fa-pills"></i>
+                <h2 id="productCount">0</h2>
+                <p>Sản phẩm</p>
+            </div>
+            <div class="stat-card reveal stagger-3">
+                <i class="fa-solid fa-robot"></i>
+                <h2 id="supportCount">0</h2>
+                <p>AI hỗ trợ 24/7</p>
+            </div>
+            <div class="stat-card reveal stagger-4">
+                <i class="fa-solid fa-award"></i>
+                <h2>100%</h2>
+                <p>Cam kết chính hãng</p>
+            </div>
+        </div>
+    </div>
+
+    <section class="about-section" style="padding-top:60px;">
+        <div class="about-image reveal-left">
+            <img src="../assets/uytinh.jpg" alt="Về chúng tôi">
+            <div class="float-badge">
+                <i class="fa-solid fa-award"></i>
+                <div>
+                    <span>100%</span>
+                    <p style="font-size:12px;color:#999;">Chính hãng</p>
+                </div>
+            </div>
+        </div>
+        <div class="reveal-right">
+            <div class="section-label">Câu chuyện</div>
+            <h2 class="section-title">Đối Tác Sức Khỏe <span class="highlight">Đáng Tin Cậy</span></h2>
+            <p class="section-sub">
+                Nhà thuốc Duy Khôi được thành lập với sứ mệnh mang đến giải pháp chăm sóc sức khỏe 
+                thông minh và tiện lợi. Chúng tôi kết hợp giữa kiến thức dược học và công nghệ hiện đại.
+            </p>
+            <p class="section-sub" style="margin-top:16px;">
+                Với đội ngũ dược sĩ giàu kinh nghiệm và hệ thống AI tư vấn thông minh, 
+                chúng tôi cam kết sản phẩm chính hãng, tư vấn chính xác và dịch vụ tận tâm.
+            </p>
+        </div>
+    </section>
+
+    <section class="features-section">
+        <div class="text-center reveal">
+            <div class="section-label">Giá trị</div>
+            <h2 class="section-title">Cam Kết Của <span class="highlight">Chúng Tôi</span></h2>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card reveal stagger-1">
+                <div class="icon-wrap"><i class="fa-solid fa-shield-medical"></i></div>
+                <h3>Chất Lượng</h3>
+                <p>Cam kết 100% thuốc chính hãng, có nguồn gốc rõ ràng, đầy đủ hóa đơn.</p>
+            </div>
+            <div class="feature-card reveal stagger-2">
+                <div class="icon-wrap"><i class="fa-solid fa-brain"></i></div>
+                <h3>Công Nghệ</h3>
+                <p>Ứng dụng AI vào tư vấn, quản lý lịch sử thuốc và nhắc lịch uống thuốc.</p>
+            </div>
+            <div class="feature-card reveal stagger-3">
+                <div class="icon-wrap"><i class="fa-solid fa-hand-holding-heart"></i></div>
+                <h3>Tận Tâm</h3>
+                <p>Đội ngũ dược sĩ giàu kinh nghiệm, tư vấn tận tình, chu đáo.</p>
+            </div>
+            <div class="feature-card reveal stagger-4">
+                <div class="icon-wrap"><i class="fa-solid fa-truck-fast"></i></div>
+                <h3>Giao Hàng</h3>
+                <p>Miễn phí giao hàng cho đơn trên 500.000đ trong nội thành Trà Vinh.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="products-section">
+        <div class="text-center reveal">
+            <div class="section-label">Đội ngũ</div>
+            <h2 class="section-title">Dược Sĩ Của <span class="highlight">Chúng Tôi</span></h2>
+            <p class="section-sub">Đội ngũ chuyên gia giàu kinh nghiệm, tận tâm với sức khỏe cộng đồng</p>
+        </div>
+        <div class="products-grid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr));">
+            <div class="product-card reveal stagger-1" style="text-align:center;">
+                <img src="../assets/Dược sĩ Dương Thành Hiếu trưởng khoa.jpg" alt="Dược sĩ Dương Thành Hiếu" style="width:100%;height:260px;object-fit:cover;">
+                <div class="body">
+                    <h3 style="color:var(--green);">Dược sĩ Dương Thành Hiếu</h3>
+                    <p>Trưởng khoa Dược</p>
+                </div>
+            </div>
+            <div class="product-card reveal stagger-2" style="text-align:center;">
+                <img src="../assets/dược sĩ Nguyễn Duy Khôi ai.jpg" alt="Dược sĩ Nguyễn Duy Khôi" style="width:100%;height:260px;object-fit:cover;">
+                <div class="body">
+                    <h3 style="color:var(--green);">Dược sĩ Nguyễn Duy Khôi</h3>
+                    <p>Chuyên viên AI</p>
+                </div>
+            </div>
+            <div class="product-card reveal stagger-3" style="text-align:center;">
+                <img src="../assets/Nguyễn Hoài Khang kiểm Duyệt.jpg" alt="Nguyễn Hoài Khang" style="width:100%;height:260px;object-fit:cover;">
+                <div class="body">
+                    <h3 style="color:var(--green);">Nguyễn Hoài Khang</h3>
+                    <p>Kiểm duyệt</p>
+                </div>
+            </div>
+            <div class="product-card reveal stagger-4" style="text-align:center;">
+                <img src="../assets/Trần Thị Trúc Ly Tư vấn.jpg" alt="Trần Thị Trúc Ly" style="width:100%;height:260px;object-fit:cover;">
+                <div class="body">
+                    <h3 style="color:var(--green);">Trần Thị Trúc Ly</h3>
+                    <p>Tư vấn</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>Duy Khôi Pharmacy</h3>
+                <p>Smart Pharmacy 4.0 - Chăm sóc sức khỏe toàn diện bằng công nghệ thông minh.</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="#"><i class="fa-brands fa-zalo"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Liên kết</h4>
+                <ul class="footer-links">
+                    <li><a href="../index.html">Trang chủ</a></li>
+                    <li><a href="gioi-thieu.html">Giới thiệu</a></li>
+                    <li><a href="san-pham.html">Sản phẩm</a></li>
+                    <li><a href="tin-tuc.html">Tin tức</a></li>
+                    <li><a href="lien-he.html">AI Tư vấn</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Giờ làm việc</h4>
+                <p><i class="fa-regular fa-clock"></i> T2 - T7: 7:00 - 21:00</p>
+                <p><i class="fa-regular fa-clock"></i> CN: 8:00 - 17:00</p>
+                <p><i class="fa-solid fa-robot"></i> AI Tư vấn: 24/7</p>
+                <p><i class="fa-solid fa-location-dot"></i> Trà Vinh, Việt Nam</p>
+            </div>
+            <div class="footer-col">
+                <h4>Đăng ký</h4>
+                <p>Nhận tin khuyến mãi và kiến thức sức khỏe mỗi tuần.</p>
+                <div class="footer-newsletter">
+                    <input type="email" placeholder="Email của bạn...">
+                    <button><i class="fa-solid fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Duy Khôi Smart Pharmacy. Tất cả quyền được bảo lưu.</p>
+        </div>
+    </footer>
+
+    <div class="clock-widget" id="clock"></div>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhà Thuốc Duy Khôi - Smart Pharmacy 4.0</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <button class="theme-fab" onclick="toggleDarkMode()">
+        <i class="fa-solid fa-moon"></i>
+    </button>
+
+    <button id="topBtn" onclick="backToTop()">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <button class="cart-fab" onclick="showCart()">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span class="count" id="cartCount">0</span>
+    </button>
+
+    <div id="promotionPopup" class="popup-overlay">
+        <div class="popup-box">
+            <button class="close" onclick="closePromotion()">&times;</button>
+            <div class="head">
+                <span class="icon">🎉</span>
+                <h2>Khuyến Mãi Đặc Biệt</h2>
+                <p>Dành riêng cho khách hàng mới</p>
+            </div>
+            <div class="body">
+                <div class="offer-badge">
+                    <div class="num">-20%</div>
+                    <p>Cho đơn hàng đầu tiên</p>
+                </div>
+                <div class="perks">
+                    <div class="perk">
+                        <i class="fa-solid fa-truck"></i>
+                        <p>Miễn phí giao hàng</p>
+                    </div>
+                    <div class="perk">
+                        <i class="fa-solid fa-gift"></i>
+                        <p>Tặng túi sức khỏe</p>
+                    </div>
+                    <div class="perk">
+                        <i class="fa-solid fa-headset"></i>
+                        <p>Hỗ trợ 24/7</p>
+                    </div>
+                </div>
+                <button class="btn btn-primary" onclick="closePromotion()">Nhận ưu đãi ngay</button>
+                <p class="note">* Áp dụng cho đơn hàng trên 200.000đ</p>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="logo-area">
+            <img src="assets/logo.jpg" class="logo" alt="Duy Khôi Pharmacy">
+            <div>
+                <h2>Duy Khôi</h2>
+                <p>Smart Pharmacy</p>
+            </div>
+        </div>
+        <div class="user-greet" id="userGreeting" style="display:none">
+            <i class="fa-solid fa-circle-user"></i>
+            <span class="name" id="userName"></span>
+            <button class="logout-btn" onclick="logout()" title="Đăng xuất"><i class="fa-solid fa-right-from-bracket"></i></button>
+        </div>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+        <nav id="navMenu">
+            <a href="index.html" class="active">Trang chủ</a>
+            <a href="html/gioi-thieu.html">Giới thiệu</a>
+            <a href="html/san-pham.html">Sản phẩm</a>
+            <a href="html/tin-tuc.html">Tin tức</a>
+            <a href="html/chi-tiet.html">Chi tiết</a>
+            <a href="html/lien-he.html">AI Tư vấn</a>
+            <a href="html/dang-nhap.html">Tài khoản</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-bg">
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+        </div>
+        <div class="hero-content reveal-left">
+            <div class="badge-hero">
+                <i class="fa-solid fa-robot"></i> Smart Pharmacy 4.0
+            </div>
+            <h1>Chăm Sóc Sức Khỏe <span>Thông Minh</span> Hơn</h1>
+            <p>Nhà thuốc hiện đại ứng dụng công nghệ AI vào quản lý thuốc và chăm sóc sức khỏe khách hàng. Hỗ trợ 24/7.</p>
+            <div class="hero-btns">
+                <a href="html/san-pham.html" class="btn btn-primary">
+                    <i class="fa-solid fa-pills"></i> Xem sản phẩm
+                </a>
+                <a href="html/lien-he.html" class="btn btn-ghost">
+                    <i class="fa-solid fa-robot"></i> AI tư vấn
+                </a>
+            </div>
+        </div>
+        <img src="assets/banner.jpg" class="hero-img reveal-right" alt="Nhà Thuốc Duy Khôi">
+    </section>
+
+    <div class="stats-wrap">
+        <div class="stats-grid">
+            <div class="stat-card reveal stagger-1">
+                <i class="fa-solid fa-users"></i>
+                <h2 id="customerCount">0</h2>
+                <p>Khách hàng</p>
+            </div>
+            <div class="stat-card reveal stagger-2">
+                <i class="fa-solid fa-pills"></i>
+                <h2 id="productCount">0</h2>
+                <p>Sản phẩm</p>
+            </div>
+            <div class="stat-card reveal stagger-3">
+                <i class="fa-solid fa-robot"></i>
+                <h2 id="supportCount">0</h2>
+                <p>AI hỗ trợ 24/7</p>
+            </div>
+            <div class="stat-card reveal stagger-4">
+                <i class="fa-solid fa-truck-medical"></i>
+                <h2>100%</h2>
+                <p>Chính hãng</p>
+            </div>
+        </div>
+    </div>
+
+    <section class="about-section">
+        <div class="about-image reveal-left">
+            <img src="assets/uytinh.jpg" alt="Về chúng tôi">
+            <div class="float-badge">
+                <i class="fa-solid fa-award"></i>
+                <div>
+                    <span>10+ năm</span>
+                    <p style="font-size:12px;color:#999;">Kinh nghiệm</p>
+                </div>
+            </div>
+        </div>
+        <div class="reveal-right">
+            <div class="section-label" style="text-align:left;">Về chúng tôi</div>
+            <h2 class="section-title" style="text-align:left;">Đối Tác Sức Khỏe <span class="highlight">Đáng Tin Cậy</span></h2>
+            <p class="section-sub" style="text-align:left;max-width:100%;">
+                Nhà thuốc Duy Khôi là hệ thống nhà thuốc hiện đại ứng dụng công nghệ vào quản lý thuốc 
+                và chăm sóc sức khỏe khách hàng. Chúng tôi cung cấp thuốc chính hãng, thực phẩm chức năng, 
+                thiết bị y tế và dịch vụ tư vấn trực tuyến.
+            </p>
+            <div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap;">
+                <a href="html/gioi-thieu.html" class="btn btn-primary">
+                    <i class="fa-solid fa-circle-info"></i> Tìm hiểu thêm
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section">
+        <div class="section-header reveal">
+            <div class="section-label">Tính năng</div>
+            <h2>Tại Sao Chọn <span class="highlight">Duy Khôi</span>?</h2>
+            <p>Công nghệ thông minh - Dịch vụ tận tâm - Sản phẩm chính hãng</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card reveal stagger-1">
+                <div class="icon-wrap"><i class="fa-solid fa-robot"></i></div>
+                <h3>AI Tư Vấn Thông Minh</h3>
+                <p>Tư vấn triệu chứng cơ bản ngoài giờ hành chính, hoạt động 24/7.</p>
+            </div>
+            <div class="feature-card reveal stagger-2">
+                <div class="icon-wrap"><i class="fa-solid fa-pills"></i></div>
+                <h3>Lịch Sử Thuốc</h3>
+                <p>Lưu lại lịch sử sử dụng thuốc bằng Local Storage tiện lợi.</p>
+            </div>
+            <div class="feature-card reveal stagger-3">
+                <div class="icon-wrap"><i class="fa-solid fa-user"></i></div>
+                <h3>Chế Độ Người Cao Tuổi</h3>
+                <p>Tự động phóng to giao diện khi tuổi trên 50, thân thiện hơn.</p>
+            </div>
+            <div class="feature-card reveal stagger-4">
+                <div class="icon-wrap"><i class="fa-solid fa-clock"></i></div>
+                <h3>Nhắc Uống Thuốc</h3>
+                <p>Hỗ trợ ghi nhớ thời gian sử dụng thuốc, không lo quên liều.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="products-section">
+        <div class="section-header reveal">
+            <div class="section-label">Sản phẩm</div>
+            <h2>Sản Phẩm <span class="highlight">Nổi Bật</span></h2>
+            <p>Thuốc chính hãng - Chất lượng cao - An toàn cho sức khỏe</p>
+        </div>
+        <div style="text-align:center;margin:-16px 0 32px;">
+            <a href="html/san-pham.html" class="btn btn-outline" style="border-radius:50px;">
+                <i class="fa-solid fa-grid-2"></i> Xem tất cả sản phẩm <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+        <div class="products-grid">
+            <div class="product-card reveal stagger-1">
+                <div class="img-wrap">
+                    <img src="assets/panaldo.jpeg" alt="Paracetamol">
+                    <span class="badge">Giảm đau, hạ sốt</span>
+                </div>
+                <div class="body">
+                    <h3>Paracetamol 500mg</h3>
+                    <p>Giảm đau - Hạ sốt. Dành cho người 12+.</p>
+                    <div class="price">25.000 <small>VNĐ</small></div>
+                    <div class="actions">
+                        <button class="btn btn-primary" onclick="addCart('Paracetamol')">
+                            <i class="fa-solid fa-cart-plus"></i> Mua ngay
+                        </button>
+                        <a href="html/chi-tiet.html#paracetamol"><button class="btn btn-outline">
+                            <i class="fa-solid fa-eye"></i> Chi tiết
+                        </button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card reveal stagger-2">
+                <div class="img-wrap">
+                    <img src="assets/vitamin c.jpeg" alt="Vitamin C">
+                    <span class="badge">Vitamin</span>
+                </div>
+                <div class="body">
+                    <h3>Vitamin C 500mg</h3>
+                    <p>Tăng đề kháng, chống oxy hóa.</p>
+                    <div class="price">70.000 <small>VNĐ</small></div>
+                    <div class="actions">
+                        <button class="btn btn-primary" onclick="addCart('Vitamin C')">
+                            <i class="fa-solid fa-cart-plus"></i> Mua ngay
+                        </button>
+                        <a href="html/chi-tiet.html#vitamin-c"><button class="btn btn-outline">
+                            <i class="fa-solid fa-eye"></i> Chi tiết
+                        </button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card reveal stagger-3">
+                <div class="img-wrap">
+                    <img src="assets/Omega 3.jpg" alt="Omega 3">
+                    <span class="badge">Bổ não</span>
+                </div>
+                <div class="body">
+                    <h3>Omega 3</h3>
+                    <p>Hỗ trợ tim mạch, tăng cường trí não.</p>
+                    <div class="price">150.000 <small>VNĐ</small></div>
+                    <div class="actions">
+                        <button class="btn btn-primary" onclick="addCart('Omega 3')">
+                            <i class="fa-solid fa-cart-plus"></i> Mua ngay
+                        </button>
+                        <a href="html/chi-tiet.html#omega-3"><button class="btn btn-outline">
+                            <i class="fa-solid fa-eye"></i> Chi tiết
+                        </button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card reveal stagger-4">
+                <div class="img-wrap">
+                    <img src="assets/Canxi 500mg.jpg" alt="Canxi">
+                    <span class="badge">Khoáng chất</span>
+                </div>
+                <div class="body">
+                    <h3>Canxi 500mg</h3>
+                    <p>Chắc khỏe xương, phòng loãng xương.</p>
+                    <div class="price">120.000 <small>VNĐ</small></div>
+                    <div class="actions">
+                        <button class="btn btn-primary" onclick="addCart('Canxi')">
+                            <i class="fa-solid fa-cart-plus"></i> Mua ngay
+                        </button>
+                        <a href="html/chi-tiet.html#canxi"><button class="btn btn-outline">
+                            <i class="fa-solid fa-eye"></i> Chi tiết
+                        </button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card reveal stagger-5">
+                <div class="img-wrap">
+                    <img src="assets/nhiệt kế điện tử.jpg" alt="Nhiệt Kế Điện Tử">
+                    <span class="badge">Dụng cụ y tế</span>
+                </div>
+                <div class="body">
+                    <h3>Nhiệt Kế Điện Tử</h3>
+                    <p>Đo nhiệt độ nhanh, chính xác. Màn hình LCD.</p>
+                    <div class="price">180.000 <small>VNĐ</small></div>
+                    <div class="actions">
+                        <button class="btn btn-primary" onclick="addCart('Nhiệt Kế Điện Tử')">
+                            <i class="fa-solid fa-cart-plus"></i> Mua ngay
+                        </button>
+                        <a href="html/chi-tiet.html#nhiet-ke"><button class="btn btn-outline">
+                            <i class="fa-solid fa-eye"></i> Chi tiết
+                        </button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card reveal stagger-6">
+                <div class="img-wrap">
+                    <img src="assets/đo đường điện tử.jpg" alt="Máy Đo Đường Huyết">
+                    <span class="badge">Dụng cụ y tế</span>
+                </div>
+                <div class="body">
+                    <h3>Máy Đo Đường Huyết</h3>
+                    <p>Kiểm tra đường huyết nhanh tại nhà.</p>
+                    <div class="price">790.000 <small>VNĐ</small></div>
+                    <div class="actions">
+                        <button class="btn btn-primary" onclick="addCart('Máy Đo Đường Huyết')">
+                            <i class="fa-solid fa-cart-plus"></i> Mua ngay
+                        </button>
+                        <a href="html/chi-tiet.html#may-do-duong"><button class="btn btn-outline">
+                            <i class="fa-solid fa-eye"></i> Chi tiết
+                        </button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card reveal stagger-7">
+                <div class="img-wrap">
+                    <img src="assets/khẩu trang.jpg" alt="Khẩu Trang Y Tế">
+                    <span class="badge">Bảo hộ</span>
+                </div>
+                <div class="body">
+                    <h3>Khẩu Trang Y Tế</h3>
+                    <p>Lọc bụi, kháng khuẩn. 4 lớp an toàn.</p>
+                    <div class="price">45.000 <small>VNĐ</small></div>
+                    <div class="actions">
+                        <button class="btn btn-primary" onclick="addCart('Khẩu Trang Y Tế')">
+                            <i class="fa-solid fa-cart-plus"></i> Mua ngay
+                        </button>
+                        <a href="html/chi-tiet.html#khau-trang"><button class="btn btn-outline">
+                            <i class="fa-solid fa-eye"></i> Chi tiết
+                        </button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card reveal stagger-8">
+                <div class="img-wrap">
+                    <img src="assets/Ginkgo Biloba 120mg.jpg" alt="Ginkgo Biloba">
+                    <span class="badge">Bổ não</span>
+                </div>
+                <div class="body">
+                    <h3>Ginkgo Biloba 120mg</h3>
+                    <p>Cải thiện trí nhớ, tăng tuần hoàn não.</p>
+                    <div class="price">200.000 <small>VNĐ</small></div>
+                    <div class="actions">
+                        <button class="btn btn-primary" onclick="addCart('Ginkgo Biloba')">
+                            <i class="fa-solid fa-cart-plus"></i> Mua ngay
+                        </button>
+                        <a href="html/chi-tiet.html#ginkgo-biloba"><button class="btn btn-outline">
+                            <i class="fa-solid fa-eye"></i> Chi tiết
+                        </button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="section-header reveal">
+            <div class="section-label">Đánh giá</div>
+            <h2>Khách Hàng <span class="highlight">Nói Gì?</span></h2>
+            <p>Khách hàng luôn hài lòng với chất lượng sản phẩm và dịch vụ của chúng tôi</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card reveal stagger-1">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p>"Dịch vụ nhanh chóng và chuyên nghiệp. AI tư vấn rất tiện lợi."</p>
+                <div class="author">
+                    <i class="fa-solid fa-user"></i>
+                    <div>
+                        <h4>Nguyễn Văn A</h4>
+                        <span>Khách hàng thân thiết</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card reveal stagger-2">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p>"AI tư vấn rất chính xác, giúp tôi yên tâm hơn khi dùng thuốc."</p>
+                <div class="author">
+                    <i class="fa-solid fa-user"></i>
+                    <div>
+                        <h4>Trần Thị B</h4>
+                        <span>Khách hàng VIP</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card reveal stagger-3">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p>"Giao diện thân thiện với người lớn tuổi. Chế độ senior rất hữu ích."</p>
+                <div class="author">
+                    <i class="fa-solid fa-user"></i>
+                    <div>
+                        <h4>Lê Văn C</h4>
+                        <span>Người cao tuổi</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="partners-section">
+        <div class="section-header reveal">
+            <div class="section-label">Đối tác</div>
+            <h2>Đối Tác Của <span class="highlight">Chúng Tôi</span></h2>
+            <p>Hợp tác cùng các đơn vị y tế hàng đầu trong và ngoài nước</p>
+        </div>
+        <div class="partners-grid">
+            <div class="partner-item reveal stagger-1">
+                <i class="fa-solid fa-hospital"></i> Bệnh viện Đa khoa
+            </div>
+            <div class="partner-item reveal stagger-2">
+                <i class="fa-solid fa-flask"></i> Dược phẩm TW
+            </div>
+            <div class="partner-item reveal stagger-3">
+                <i class="fa-solid fa-microscope"></i> Labo Y khoa
+            </div>
+            <div class="partner-item reveal stagger-4">
+                <i class="fa-solid fa-heart-pulse"></i> Tim mạch Việt
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>Duy Khôi Pharmacy</h3>
+                <p>Smart Pharmacy 4.0 - Chăm sóc sức khỏe toàn diện bằng công nghệ thông minh.</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="#"><i class="fa-brands fa-zalo"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Liên kết</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="html/gioi-thieu.html">Giới thiệu</a></li>
+                    <li><a href="html/san-pham.html">Sản phẩm</a></li>
+                    <li><a href="html/tin-tuc.html">Tin tức</a></li>
+                    <li><a href="html/lien-he.html">AI Tư vấn</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Giờ làm việc</h4>
+                <p><i class="fa-regular fa-clock"></i> T2 - T7: 7:00 - 21:00</p>
+                <p><i class="fa-regular fa-clock"></i> CN: 8:00 - 17:00</p>
+                <p><i class="fa-solid fa-robot"></i> AI Tư vấn: 24/7</p>
+                <p><i class="fa-solid fa-location-dot"></i> Trà Vinh, Việt Nam</p>
+            </div>
+            <div class="footer-col">
+                <h4>Đăng ký</h4>
+                <p>Nhận tin khuyến mãi và kiến thức sức khỏe mỗi tuần.</p>
+                <div class="footer-newsletter">
+                    <input type="email" placeholder="Email của bạn...">
+                    <button><i class="fa-solid fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Duy Khôi Smart Pharmacy. Tất cả quyền được bảo lưu.</p>
+        </div>
+    </footer>
+
+    <div class="clock-widget" id="clock"></div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

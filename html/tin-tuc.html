@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tin tức sức khỏe - Duy Khôi Pharmacy</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <button class="theme-fab" onclick="toggleDarkMode()"><i class="fa-solid fa-moon"></i></button>
+    <button id="topBtn" onclick="backToTop()"><i class="fa-solid fa-arrow-up"></i></button>
+    <button class="cart-fab" onclick="showCart()">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span class="count" id="cartCount">0</span>
+    </button>
+
+    <header>
+        <div class="logo-area">
+            <img src="../assets/logo.jpg" class="logo" alt="Duy Khôi Pharmacy">
+            <div>
+                <h2>Duy Khôi</h2>
+                <p>Smart Pharmacy</p>
+            </div>
+        </div>
+        <div class="user-greet" id="userGreeting" style="display:none">
+            <i class="fa-solid fa-circle-user"></i>
+            <span class="name" id="userName"></span>
+            <button class="logout-btn" onclick="logout()" title="Đăng xuất"><i class="fa-solid fa-right-from-bracket"></i></button>
+        </div>
+        <div class="menu-toggle" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></div>
+        <nav id="navMenu">
+            <a href="../index.html">Trang chủ</a>
+            <a href="gioi-thieu.html">Giới thiệu</a>
+            <a href="san-pham.html">Sản phẩm</a>
+            <a href="tin-tuc.html" class="active">Tin tức</a>
+            <a href="chi-tiet.html">Chi tiết</a>
+            <a href="lien-he.html">AI Tư vấn</a>
+            <a href="dang-nhap.html">Tài khoản</a>
+        </nav>
+    </header>
+
+    <section class="page-hero">
+        <h1>Tin Tức Sức Khỏe</h1>
+        <p>Kiến thức y học - Chăm sóc sức khỏe - Lối sống lành mạnh</p>
+    </section>
+
+    <div class="news-grid">
+        <article class="news-card reveal stagger-1">
+            <img src="../assets/panaldo.jpeg" alt="Sức khỏe">
+            <div class="body">
+                <p class="date"><i class="fa-regular fa-calendar"></i> 15/05/2026</p>
+                <h3>10 Cách Tăng Cường Hệ Miễn Dịch Tự Nhiên</h3>
+                <p>Hệ miễn dịch khỏe mạnh là chìa khóa phòng chống bệnh tật. Khám phá những cách đơn giản để tăng sức đề kháng.</p>
+                <a href="#">Đọc tiếp →</a>
+            </div>
+        </article>
+        <article class="news-card reveal stagger-2">
+            <img src="../assets/antibi.jpeg" alt="Vitamin C">
+            <div class="body">
+                <p class="date"><i class="fa-regular fa-calendar"></i> 12/05/2026</p>
+                <h3>Lợi Ích Của Vitamin C Đối Với Sức Khỏe</h3>
+                <p>Vitamin C là vi chất quan trọng. Tìm hiểu cách bổ sung vitamin C đúng cách cho cơ thể.</p>
+                <a href="#">Đọc tiếp →</a>
+            </div>
+        </article>
+        <article class="news-card reveal stagger-3">
+            <img src="../assets/vitamin c.jpeg" alt="Omega 3">
+            <div class="body">
+                <p class="date"><i class="fa-regular fa-calendar"></i> 10/05/2026</p>
+                <h3>Omega 3: Dưỡng Chất Vàng Cho Tim Mạch</h3>
+                <p>Omega 3 giúp giảm cholesterol xấu, bảo vệ tim mạch và hỗ trợ phát triển trí não.</p>
+                <a href="#">Đọc tiếp →</a>
+            </div>
+        </article>
+        <article class="news-card reveal stagger-1">
+            <img src="../assets/Canxi 500mg.jpg" alt="Canxi">
+            <div class="body">
+                <p class="date"><i class="fa-regular fa-calendar"></i> 08/05/2026</p>
+                <h3>Bổ Sung Canxi Đúng Cách Cho Người Lớn Tuổi</h3>
+                <p>Người lớn tuổi thường gặp vấn đề về xương khớp do thiếu canxi. Bổ sung thế nào cho hiệu quả?</p>
+                <a href="#">Đọc tiếp →</a>
+            </div>
+        </article>
+        <article class="news-card reveal stagger-2">
+            <img src="../assets/khẩu trang.jpg" alt="Sức khỏe">
+            <div class="body">
+                <p class="date"><i class="fa-regular fa-calendar"></i> 05/05/2026</p>
+                <h3>Cách Phòng Tránh Cảm Cúm Mùa Hè</h3>
+                <p>Cảm cúm không chỉ mùa đông. Mùa hè cũng dễ mắc bệnh nếu không biết cách phòng tránh.</p>
+                <a href="#">Đọc tiếp →</a>
+            </div>
+        </article>
+        <article class="news-card reveal stagger-3">
+            <img src="../assets/nhiệt kế điện tử.jpg" alt="Sức khỏe">
+            <div class="body">
+                <p class="date"><i class="fa-regular fa-calendar"></i> 02/05/2026</p>
+                <h3>Lợi Ích Của Việc Khám Sức Khỏe Định Kỳ</h3>
+                <p>Khám sức khỏe định kỳ giúp phát hiện sớm bệnh lý và tăng cơ hội điều trị thành công.</p>
+                <a href="#">Đọc tiếp →</a>
+            </div>
+        </article>
+    </div>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>Duy Khôi Pharmacy</h3>
+                <p>Smart Pharmacy 4.0 - Chăm sóc sức khỏe toàn diện bằng công nghệ thông minh.</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="#"><i class="fa-brands fa-zalo"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Liên kết</h4>
+                <ul class="footer-links">
+                    <li><a href="../index.html">Trang chủ</a></li>
+                    <li><a href="gioi-thieu.html">Giới thiệu</a></li>
+                    <li><a href="san-pham.html">Sản phẩm</a></li>
+                    <li><a href="tin-tuc.html">Tin tức</a></li>
+                    <li><a href="lien-he.html">AI Tư vấn</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Giờ làm việc</h4>
+                <p><i class="fa-regular fa-clock"></i> T2 - T7: 7:00 - 21:00</p>
+                <p><i class="fa-regular fa-clock"></i> CN: 8:00 - 17:00</p>
+                <p><i class="fa-solid fa-robot"></i> AI Tư vấn: 24/7</p>
+                <p><i class="fa-solid fa-location-dot"></i> Trà Vinh, Việt Nam</p>
+            </div>
+            <div class="footer-col">
+                <h4>Đăng ký</h4>
+                <p>Nhận tin khuyến mãi và kiến thức sức khỏe mỗi tuần.</p>
+                <div class="footer-newsletter">
+                    <input type="email" placeholder="Email của bạn...">
+                    <button><i class="fa-solid fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Duy Khôi Smart Pharmacy. Tất cả quyền được bảo lưu.</p>
+        </div>
+    </footer>
+
+    <div class="clock-widget" id="clock"></div>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>

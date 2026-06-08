@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sản phẩm - Duy Khôi Pharmacy</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <button class="theme-fab" onclick="toggleDarkMode()"><i class="fa-solid fa-moon"></i></button>
+    <button id="topBtn" onclick="backToTop()"><i class="fa-solid fa-arrow-up"></i></button>
+    <button class="cart-fab" onclick="showCart()">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span class="count" id="cartCount">0</span>
+    </button>
+
+    <header>
+        <div class="logo-area">
+            <img src="../assets/logo.jpg" class="logo" alt="Duy Khôi Pharmacy">
+            <div>
+                <h2>Duy Khôi</h2>
+                <p>Smart Pharmacy</p>
+            </div>
+        </div>
+        <div class="user-greet" id="userGreeting" style="display:none">
+            <i class="fa-solid fa-circle-user"></i>
+            <span class="name" id="userName"></span>
+            <button class="logout-btn" onclick="logout()" title="Đăng xuất"><i class="fa-solid fa-right-from-bracket"></i></button>
+        </div>
+        <div class="menu-toggle" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></div>
+        <nav id="navMenu">
+            <a href="../index.html">Trang chủ</a>
+            <a href="gioi-thieu.html">Giới thiệu</a>
+            <a href="san-pham.html" class="active">Sản phẩm</a>
+            <a href="tin-tuc.html">Tin tức</a>
+            <a href="chi-tiet.html">Chi tiết</a>
+            <a href="lien-he.html">AI Tư vấn</a>
+            <a href="dang-nhap.html">Tài khoản</a>
+        </nav>
+    </header>
+
+    <section class="page-hero">
+        <h1>Tất Cả Sản Phẩm</h1>
+        <p>Thuốc chính hãng - Thiết bị y tế - Sản phẩm bảo hộ</p>
+    </section>
+
+    <div class="search-wrap">
+        <input type="text" id="search" placeholder="🔍 Tìm kiếm sản phẩm..." oninput="searchMedicine()">
+    </div>
+
+    <div class="filter-pills" id="categoryFilter">
+        <span class="filter-pill active" data-cat="all" onclick="filterByCategoryPill(this)">Tất cả</span>
+        <span class="filter-pill" data-cat="giam-dau" onclick="filterByCategoryPill(this)">Giảm đau, hạ sốt</span>
+        <span class="filter-pill" data-cat="khang-sinh" onclick="filterByCategoryPill(this)">Kháng sinh</span>
+        <span class="filter-pill" data-cat="vitamin" onclick="filterByCategoryPill(this)">Vitamin & Khoáng chất</span>
+        <span class="filter-pill" data-cat="tieu-hoa" onclick="filterByCategoryPill(this)">Tiêu hóa</span>
+        <span class="filter-pill" data-cat="ho-hap" onclick="filterByCategoryPill(this)">Hô hấp</span>
+        <span class="filter-pill" data-cat="di-ung" onclick="filterByCategoryPill(this)">Dị ứng</span>
+        <span class="filter-pill" data-cat="bo-nao" onclick="filterByCategoryPill(this)">Bổ não & Tim mạch</span>
+        <span class="filter-pill" data-cat="dong-y" onclick="filterByCategoryPill(this)">Đông y</span>
+        <span class="filter-pill" data-cat="dung-cu" onclick="filterByCategoryPill(this)">Dụng cụ y tế</span>
+        <span class="filter-pill" data-cat="bao-ho" onclick="filterByCategoryPill(this)">Bảo hộ</span>
+    </div>
+
+    <div style="display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap;margin-bottom:32px;">
+        <select id="priceFilter" onchange="filterProducts()" style="padding:8px 20px;border:1.5px solid var(--gray-200);border-radius:50px;font-family:var(--font);font-size:13px;outline:none;cursor:pointer;background:white;color:var(--gray-600);">
+            <option value="all">Tất cả mức giá</option>
+            <option value="low">Dưới 100.000đ</option>
+            <option value="mid">100.000đ - 300.000đ</option>
+            <option value="high">Trên 300.000đ</option>
+        </select>
+        <span style="font-size:13px;color:var(--gray-400);font-weight:500;" id="productCountBadge"><span id="visibleCount">0</span> sản phẩm</span>
+    </div>
+
+    <!-- ===== Thuốc giảm đau, hạ sốt ===== -->
+    <section class="products-section category-section" data-cat="giam-dau" style="padding-top:0;">
+        <div class="text-center reveal">
+            <div class="section-label">Danh mục</div>
+            <h2 class="section-title">Thuốc Giảm Đau, Hạ Sốt</h2>
+            <p class="section-sub">Giảm nhanh các triệu chứng đau đầu, đau cơ, sốt thông thường</p>
+        </div>
+        <div class="products-grid">
+            <div class="product-card reveal stagger-1" data-cat="giam-dau">
+                <div class="img-wrap">
+                    <img src="../assets/panaldo.jpeg" alt="Paracetamol 500mg">
+                    <span class="badge">Giảm đau, hạ sốt</span>
+                    <span class="product-badge hot">Bán chạy</span>
+                </div>
+                <div class="body">
+                    <h3>Paracetamol 500mg</h3>
+                    <p>Giảm sốt, giảm đau đầu và đau cơ nhẹ. Dành cho người 12+.</p>
+                    <div class="price">25.000 <small>VNĐ</small></div>
+                    <div class="actions">
+                        <button class="btn btn-primary" onclick="addCart('Paracetamol')"><i class="fa-solid fa-cart-plus"></i> Mua ngay</button>
+                        <a href="chi-tiet.html#paracetamol"><button class="btn btn-outline"><i class="fa-solid fa-eye"></i> Chi tiết</button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card reveal stagger-2" data-cat="giam-dau">
+                <div class="img-wrap">
+                    <img src="../assets/Ibuprofen 400mg.jpg" alt="Ibuprofen 400mg">
+                    <span class="badge">Giảm đau, hạ sốt</span>
+                    <span class="product-badge sale">Giảm 10%</span>
+                </div>
+                <div class="body">
+                    <h3>Ibuprofen 400mg</h3>
+                    <p>Giảm đau khớp, đau cơ, hạ sốt mạnh. Chống viêm hiệu quả.</p>
+                    <div class="price">45.000 <small>VNĐ</small></div>
+                    <div class="actions">
+                        <button class="btn btn-primary" onclick="addCart('Ibuprofen')"><i class="fa-solid fa-cart-plus"></i> Mua ngay</button>
+                        <a href="chi-tiet.html#ibuprofen"><button class="btn btn-outline"><i class="fa-solid fa-eye"></i> Chi tiết</button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card reveal stagger-3" data-cat="giam-dau">
+                <div class="img-wrap">
+                    <img src="../assets/Aspirin 80mg.jpg" alt="Aspirin">
+                    <span class="badge">Giảm đau, hạ sốt</span>
+                </div>
+                <div class="body">
+                    <h3>Aspirin 80mg</h3>
+                    <p>Giảm đau nhẹ, chống đông máu. Bảo vệ tim mạch cho người lớn tuổi.</p>
+                    <div class="price">35.000 <small>VNĐ</small></div>
+                    <div class="actions">
+                        <button class="btn btn-primary" onclick="addCart('Aspirin')"><i class="fa-solid fa-cart-plus"></i> Mua ngay</button>
+                        <a href="chi-tiet.html#aspirin"><button class="btn btn-outline"><i class="fa-solid fa-eye"></i> Chi tiết</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Thuốc kháng sinh ===== -->
+    <section class="products-section category-section" data-cat="khang-sinh" style="padding-top:0;">
+        <div class="text-center reveal">
+            <div class="section-label">Danh mục</div>
+            <h2 class="section-title">Thuốc Kháng Sinh</h2>
+            <p class="section-sub">Điều trị nhiễm khuẩn theo chỉ định của bác sĩ</p>
+        </div>
+        <div class="products-grid">
+            <div class="product-card reveal stagger-1" data-cat="khang-sinh">
+                <div class="img-wrap">
+                    <img src="../assets/antibi.jpeg" alt="Antibi">
+                    <span class="badge">Kháng sinh</span>
+                    <span class="product-badge hot">Bán chạy</span>
+                </div>
+                <div class="body">
+                    <h3>Antibi</h3>
+                    <p>Hỗ trợ điều trị viêm họng và nhiễm khuẩn nhẹ. Dành cho người 18+.</p>
+                    <div class="price">65.000 <small>VNĐ</small></div>
+                    <div class="actions">
+                        <button class="btn btn-primary" onclick="addCart('Antibi')"><i class="fa-solid fa-cart-plus"></i> Mua ngay</button>
+                        <a href="chi-tiet.html#antibi"><button class="btn btn-outline"><i class="fa-solid fa-eye"></i> Chi tiết</button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card reveal stagger-2" data-cat="khang-sinh">
+                <div class="img-wrap">
+                    <img src="../assets/Amoxicillin 500mg.jpg" alt="Amoxicillin">
+                    <span class="badge">Kháng sinh</span>
+                    <span class="product-badge sale">Giảm 10%</span>
+                </div>
+                <div class="body">
+                    <h3>Amoxicillin 500mg</h3>
+                    <p>Kháng sinh phổ rộng, trị nhiễm khuẩn hô hấp, tiết niệu. Cần kê đơn.</p>
+                    <div class="price">85.000 <small>VNĐ</small></div>
+                    <div class="actions">
+                        <button class="btn btn-primary" onclick="addCart('Amoxicillin')"><i class="fa-solid fa-cart-plus"></i> Mua ngay</button>
+                        <a href="chi-tiet.html#amoxicillin"><button class="btn btn-outline"><i class="fa-solid fa-eye"></i> Chi tiết</button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card reveal stagger-3" data-cat="khang-sinh">
+                <div class="img-wrap">
+                    <img src="../assets/Azithromycin 250mg.jpg" alt="Azithromycin">
+                    <span class="badge">Kháng sinh</span>
+                </div>
+                <div class="body">
+                    <h3>Azithromycin 250mg</h3>
+                    <p>Kháng sinh điều trị viêm phổi, viêm phế quản, nhiễm khuẩn da.</p>
+                    <div class="price">120.000 <small>VNĐ</small></div>
+                    <div class="actions">
+                        <button class="btn btn-primary" onclick="addCart('Azithromycin')"><i class="fa-solid fa-cart-plus"></i> Mua ngay</button>
+                        <a href="chi-tiet.html#azithromycin"><button class="btn btn-outline"><i class="fa-solid fa-eye"></i> Chi tiết</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Vitamin & Khoáng chất ===== -->
+    <section class="products-section category-section" data-cat="vitamin" style="padding-top:0;">
+        <div class="text-center reveal">
+            <div class="section-label">Danh mục</div>
+            <h2 class="section-title">Vitamin &amp; Khoáng Chất</h2>
+            <p class="section-sub">Bổ sung dưỡng chất thiết yếu cho cơ thể khỏe mạnh</p>
+        </div>
+        <div class="products-grid">
+            <div class="product-card reveal stagger-1" data-cat="vitamin">
+                <div class="img-wrap">
+                    <img src="../assets/vitamin c.jpeg" alt="Vitamin C">
+                    <span class="badge">Vitamin</span>
+                    <span class="product-badge hot">Bán chạy</span>
+                </div>
+                <div class="body">
+                    <h3>Vitamin C 500mg</h3>
+                    <p>Bổ sung vitamin tăng sức đề kháng. Phù hợp cho cả gia đình 6+.</p>
+                    <div class="price">70.000 <small>VNĐ</small></div>
+                    <div class="actions">
+                        <button class="btn btn-primary" onclick="addCart('Vitamin C')"><i class="fa-solid fa-cart-plus"></i> Mua ngay</button>
+                        <a href="chi-tiet.html#vitamin-c"><button class="btn btn-outline"><i class="fa-solid fa-eye"></i> Chi tiết</button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card reveal stagger-2" data-cat="vitamin">
+                <div class="img-wrap">
+                    <img src="../assets/Canxi 500mg.jpg" alt="Canxi">
+                    <span class="badge">Khoáng chất</span>
+                    <span class="product-badge sale">Giảm 10%</span>
+                </div>
+                <div class="body">
+                    <h3>Canxi 500mg</h3>
+                    <p>Bổ sung canxi cho xương chắc khỏe, phòng ngừa loãng xương.</p>
+                    <div class="price">120.000 <small>VNĐ</small></div>
+                    <div class="actions">
+                        <button class="btn btn-primary" onclick="addCart('Canxi')"><i class="fa-solid fa-cart-plus"></i> Mua ngay</button>
+                        <a href="chi-tiet.html#canxi"><button class="btn btn-outline"><i class="fa-solid fa-eye"></i> Chi tiết</button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card reveal stagger-3" data-cat="vitamin">
+                <div class="img-wrap">
+                    <img src="../assets/Vitamin B Complex.jpg" alt="Vitamin B Complex">
+                    <span class="badge">Vitamin</span>
+                </div>
+                <div class="body">
+                    <h3>Vitamin B Complex</h3>
+                    <p>Bổ sung nhóm vitamin B, tăng chuyển hóa năng lượng, giảm mệt mỏi.</p>
+                    <div class="price">90.000 <small>VNĐ</small></div>
+                    <div class="actions">
+                        <button class="btn btn-primary" onclick="addCart('Vitamin B Complex')"><i class="fa-solid fa-cart-plus"></i> Mua ngay</button>
+                        <a href="chi-tiet.html#vitamin-b"><button class="btn btn-outline"><i class="fa-solid fa-eye"></i> Chi tiết</button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card reveal stagger-4" data-cat="vitamin">
+                <div class="img-wrap">
+                    <img src="../assets/Vitamin D3 400IU.jpg" alt="Vitamin D3">
+                    <span class="badge">Vitamin</span>
+                </div>
+                <div class="body">
+                    <h3>Vitamin D3 400IU</h3>
+                    <p>Hỗ trợ hấp thu canxi, tốt cho xương và hệ miễn dịch.</p>
+                    <div class="price">65.000 <small>VNĐ</small></div>
+                    <div class="actions">
+                        <button class="btn btn-primary" onclick="addCart('Vitamin D3')"><i class="fa-solid fa-cart-plus"></i> Mua ngay</button>
+                        <a href="chi-tiet.html#vitamin-d3"><button class="btn btn-outline"><i class="fa-solid fa-eye"></i> Chi tiết</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Thuốc tiêu hóa ===== -->
+    <section class="products-section category-section" data-cat="tieu-hoa" style="padding-top:0;">
+        <div class="text-center reveal">
+            <div class="section-label">Danh mục</div>
+            <h2 class="section-title">Thuốc Tiêu Hóa</h2>
+            <p class="section-sub">Hỗ trợ tiêu hóa, giảm đau dạ dày, đầy hơi, khó tiêu</p>
+        </div>
+        <div class="products-grid">
+            <div class="product-card reveal stagger-1" data-cat="tieu-hoa">
+                <div class="img-wrap">
+                    <img src="../assets/Men Tiêu Hóa.jpg" alt="Men tiêu hóa">
+                    <span class="badge">Tiêu hóa</span>
+                    <span class="product-badge hot">Bán chạy</span>
+                </div>
+                <div class="body">
+                    <h3>Men Tiêu Hóa</h3>
+                    <p>Bổ sung enzym tiêu hóa, hỗ trợ ăn ngon, giảm đầy bụng.</p>
+                    <div class="price">55.000 <small>VNĐ</small></div>
+                    <div class="actions">
+                        <button class="btn btn-primary" onclick="addCart('Men Tiêu Hóa')"><i class="fa-solid fa-cart-plus"></i> Mua ngay</button>
+                        <a href="chi-tiet.html#men-tieu-hoa"><button class="btn btn-outline"><i class="fa-solid fa-eye"></i> Chi tiết</button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card reveal stagger-2" data-cat="tieu-hoa">
+                <div class="img-wrap">
+                    <img src="../assets/Omeprazole 20mg.jpg" alt="Omeprazole">
+                    <span class="badge">Tiêu hóa</span>
+                    <span class="product-badge sale">Giảm 10%</span>
+                </div>
+                <div class="body">
+                    <h3>Omeprazole 20mg</h3>
+                    <p>Điều trị trào ngược dạ dày, viêm loét dạ dày - tá tràng.</p>
+                    <div class="price">75.000 <small>VNĐ</small></div>
+                    <div class="actions">
+                        <button class="btn btn-primary" onclick="addCart('Omeprazole')"><i class="fa-solid fa-cart-plus"></i> Mua ngay</button>
+                        <a href="chi-tiet.html#omeprazole"><button class="btn btn-outline"><i class="fa-solid fa-eye"></i> Chi tiết</button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card reveal stagger-3" data-cat="tieu-hoa">
+                <div class="img-wrap">
+                    <img src="../assets/Berberin.jpg" alt="Berberin">
+                    <span class="badge">Tiêu hóa</span>
+                </div>
+                <div class="body">
+                    <h3>Berberin</h3>
+                    <p>Kháng khuẩn đường ruột, trị tiêu chảy, viêm ruột hiệu quả.</p>
+                    <div class="price">40.000 <small>VNĐ</small></div>
+                    <div class="actions">
+                        <button class="btn btn-primary" onclick="addCart('Berberin')"><i class="fa-solid fa-cart-plus"></i> Mua ngay</button>
+                        <a href="chi-tiet.html#berberin"><button class="btn btn-outline"><i class="fa-solid fa-eye"></i> Chi tiết</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Thuốc hô hấp ===== -->
+    <section class="products-section category-section" data-cat="ho-hap" style="padding-top:0;">
+        <div class="text-center reveal">
+            <div class="section-label">Danh mục</div>
+            <h2 class="section-title">Thuốc Hô Hấp</h2>
+            <p class="section-sub">Giảm ho, long đờm, hỗ trợ điều trị viêm họng, cảm cúm</p>
+        </div>
+        <div class="products-grid">
+            <div class="product-card reveal stagger-1" data-cat="ho-hap">
+                <div class="img-wrap">
+                    <img src="../assets/Thuốc Ho Bổ Phế.jpg" alt="Thuốc ho Bổ Phế">
+                    <span class="badge">Hô hấp</span>
+                    <span class="product-badge hot">Bán chạy</span>
+                </div>
+                <div class="body">
+                    <h3>Thuốc Ho Bổ Phế</h3>
+                    <p>Giảm ho, long đờm, làm dịu cổ họng. Thảo dược lành tính.</p>
+                    <div class="price">35.000 <small>VNĐ</small></div>
+                    <div class="actions">
+                        <button class="btn btn-primary" onclick="addCart('Thuốc Ho Bổ Phế')"><i class="fa-solid fa-cart-plus"></i> Mua ngay</button>
+                        <a href="chi-tiet.html#ho-bo-phe"><button class="btn btn-outline"><i class="fa-solid fa-eye"></i> Chi tiết</button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card reveal stagger-2" data-cat="ho-hap">
+                <div class="img-wrap">
+                    <img src="../assets/Siro Ho Prospan.jpg" alt="Siro ho Prospan">
+                    <span class="badge">Hô hấp</span>
+                    <span class="product-badge sale">Giảm 10%</span>
+                </div>
+                <div class="body">
+                    <h3>Siro Ho Prospan</h3>
+                    <p>Trị ho cho bé từ 1 tuổi. Chiết xuất thảo dược thiên nhiên an toàn.</p>
+                    <div class="price">60.000 <small>VNĐ</small></div>
+                    <div class="actions">
+                        <button class="btn btn-primary" onclick="addCart('Siro Ho Prospan')"><i class="fa-solid fa-cart-plus"></i> Mua ngay</button>
+                        <a href="chi-tiet.html#siro-prospan"><button class="btn btn-outline"><i class="fa-solid fa-eye"></i> Chi tiết</button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card reveal stagger-3" data-cat="ho-hap">
+                <div class="img-wrap">
+                    <img src="../assets/Thuốc Cảm Tổng Hợp.jpg" alt="Thuốc cảm">
+                    <span class="badge">Hô hấp</span>
+                </div>
+                <div class="body">
+                    <h3>Thuốc Cảm Tổng Hợp</h3>
+                    <p>Giảm các triệu chứng cảm cúm: sổ mũi, nghẹt mũi, đau đầu.</p>
+                    <div class="price">28.000 <small>VNĐ</small></div>
+                    <div class="actions">
+                        <button class="btn btn-primary" onclick="addCart('Thuốc Cảm')"><i class="fa-solid fa-cart-plus"></i> Mua ngay</button>
+                        <a href="chi-tiet.html#thuoc-cam"><button class="btn btn-outline"><i class="fa-solid fa-eye"></i> Chi tiết</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Thuốc dị ứng ===== -->
+    <section class="products-section category-section" data-cat="di-ung" style="padding-top:0;">
+        <div class="text-center reveal">
+            <div class="section-label">Danh mục</div>
+            <h2 class="section-title">Thuốc Dị Ứng</h2>
+            <p class="section-sub">Chống dị ứng, giảm mề đay, mẩn ngứa, viêm mũi dị ứng</p>
+        </div>
+        <div class="products-grid">
+            <div class="product-card reveal stagger-1" data-cat="di-ung">
+                <div class="img-wrap">
+                    <img src="../assets/Cetirizin 10mg.jpg" alt="Cetirizin">
+                    <span class="badge">Dị ứng</span>
+                    <span class="product-badge hot">Bán chạy</span>
+                </div>
+                <div class="body">
+                    <h3>Cetirizin 10mg</h3>
+                    <p>Kháng histamin, giảm nhanh triệu chứng dị ứng, mề đay, mẩn ngứa.</p>
+                    <div class="price">40.000 <small>VNĐ</small></div>
+                    <div class="actions">
+                        <button class="btn btn-primary" onclick="addCart('Cetirizin')"><i class="fa-solid fa-cart-plus"></i> Mua ngay</button>
+                        <a href="chi-tiet.html#cetirizin"><button class="btn btn-outline"><i class="fa-solid fa-eye"></i> Chi tiết</button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card reveal stagger-2" data-cat="di-ung">
+                <div class="img-wrap">
+                    <img src="../assets/Loratadin 10mg.jpg" alt="Loratadin">
+                    <span class="badge">Dị ứng</span>
+                    <span class="product-badge sale">Giảm 10%</span>
+                </div>
+                <div class="body">
+                    <h3>Loratadin 10mg</h3>
+                    <p>Kháng histamin thế hệ mới, trị viêm mũi dị ứng, mề đay mạn tính.</p>
+                    <div class="price">55.000 <small>VNĐ</small></div>
+                    <div class="actions">
+                        <button class="btn btn-primary" onclick="addCart('Loratadin')"><i class="fa-solid fa-cart-plus"></i> Mua ngay</button>
+                        <a href="chi-tiet.html#loratadin"><button class="btn btn-outline"><i class="fa-solid fa-eye"></i> Chi tiết</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Thuốc bổ não & tim mạch ===== -->
+    <section class="products-section category-section" data-cat="bo-nao" style="padding-top:0;">
+        <div class="text-center reveal">
+            <div class="section-label">Danh mục</div>
+            <h2 class="section-title">Thuốc Bổ Não &amp; Tim Mạch</h2>
+            <p class="section-sub">Tăng cường tuần hoàn não, hỗ trợ tim mạch và trí nhớ</p>
+        </div>
+        <div class="products-grid">
+            <div class="product-card reveal stagger-1" data-cat="bo-nao">
+                <div class="img-wrap">
+                    <img src="../assets/Omega 3.jpg" alt="Omega 3">
+                    <span class="badge">Bổ não</span>
+                    <span class="product-badge hot">Bán chạy</span>
+                </div>
+                <div class="body">
+                    <h3>Omega 3</h3>
+                    <p>Hỗ trợ tim mạch, giảm cholesterol xấu, tăng cường trí não.</p>
+                    <div class="price">150.000 <small>VNĐ</small></div>
+                    <div class="actions">
+                        <button class="btn btn-primary" onclick="addCart('Omega 3')"><i class="fa-solid fa-cart-plus"></i> Mua ngay</button>
+                        <a href="chi-tiet.html#omega-3"><button class="btn btn-outline"><i class="fa-solid fa-eye"></i> Chi tiết</button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card reveal stagger-2" data-cat="bo-nao">
+                <div class="img-wrap">
+                    <img src="../assets/Ginkgo Biloba 120mg.jpg" alt="Ginkgo Biloba">
+                    <span class="badge">Bổ não</span>
+                    <span class="product-badge sale">Giảm 10%</span>
+                </div>
+                <div class="body">
+                    <h3>Ginkgo Biloba 120mg</h3>
+                    <p>Tăng tuần hoàn não, cải thiện trí nhớ, giảm đau đầu, hoa mắt.</p>
+                    <div class="price">200.000 <small>VNĐ</small></div>
+                    <div class="actions">
+                        <button class="btn btn-primary" onclick="addCart('Ginkgo Biloba')"><i class="fa-solid fa-cart-plus"></i> Mua ngay</button>
+                        <a href="chi-tiet.html#ginkgo-biloba"><button class="btn btn-outline"><i class="fa-solid fa-eye"></i> Chi tiết</button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card reveal stagger-3" data-cat="bo-nao">
+                <div class="img-wrap">
+                    <img src="../assets/Coenzyme Q10.jpg" alt="Coenzyme Q10">
+                    <span class="badge">Tim mạch</span>
+                </div>
+                <div class="body">
+                    <h3>Coenzyme Q10</h3>
+                    <p>Bổ trợ tim mạch, tăng năng lượng tế bào, chống lão hóa.</p>
+                    <div class="price">250.000 <small>VNĐ</small></div>
+                    <div class="actions">
+                        <button class="btn btn-primary" onclick="addCart('Coenzyme Q10')"><i class="fa-solid fa-cart-plus"></i> Mua ngay</button>
+                        <a href="chi-tiet.html#co-q10"><button class="btn btn-outline"><i class="fa-solid fa-eye"></i> Chi tiết</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Thuốc đông y ===== -->
+    <section class="products-section category-section" data-cat="dong-y" style="padding-top:0;">
+        <div class="text-center reveal">
+            <div class="section-label">Danh mục</div>
+            <h2 class="section-title">Thuốc Đông Y</h2>
+            <p class="section-sub">Sản phẩm từ thảo dược thiên nhiên, an toàn và lành tính</p>
+        </div>
+        <div class="products-grid">
+            <div class="product-card reveal stagger-1" data-cat="dong-y">
+                <div class="img-wrap">
+                    <img src="../assets/Dầu Gió.jpg" alt="Dầu gió">
+                    <span class="badge">Đông y</span>
+                    <span class="product-badge hot">Bán chạy</span>
+                </div>
+                <div class="body">
+                    <h3>Dầu Gió</h3>
+                    <p>Xoa bóp giảm đau nhức, cảm cúm, đầy hơi. Tinh dầu thiên nhiên.</p>
+                    <div class="price">25.000 <small>VNĐ</small></div>
+                    <div class="actions">
+                        <button class="btn btn-primary" onclick="addCart('Dầu Gió')"><i class="fa-solid fa-cart-plus"></i> Mua ngay</button>
+                        <a href="chi-tiet.html#dau-gio"><button class="btn btn-outline"><i class="fa-solid fa-eye"></i> Chi tiết</button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card reveal stagger-2" data-cat="dong-y">
+                <div class="img-wrap">
+                    <img src="../assets/Cao Xương Khớp.jpg" alt="Cao xương khớp">
+                    <span class="badge">Đông y</span>
+                    <span class="product-badge sale">Giảm 10%</span>
+                </div>
+                <div class="body">
+                    <h3>Cao Xương Khớp</h3>
+                    <p>Bổ xương khớp, giảm đau nhức, hỗ trợ điều trị thoái hóa khớp.</p>
+                    <div class="price">80.000 <small>VNĐ</small></div>
+                    <div class="actions">
+                        <button class="btn btn-primary" onclick="addCart('Cao Xương Khớp')"><i class="fa-solid fa-cart-plus"></i> Mua ngay</button>
+                        <a href="chi-tiet.html#cao-xuong-khop"><button class="btn btn-outline"><i class="fa-solid fa-eye"></i> Chi tiết</button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card reveal stagger-3" data-cat="dong-y">
+                <div class="img-wrap">
+                    <img src="../assets/Trà Nhân Trần.jpg" alt="Nhân trần">
+                    <span class="badge">Đông y</span>
+                </div>
+                <div class="body">
+                    <h3>Trà Nhân Trần</h3>
+                    <p>Mát gan, giải độc, lợi tiểu. Hỗ trợ điều trị viêm gan, men gan cao.</p>
+                    <div class="price">45.000 <small>VNĐ</small></div>
+                    <div class="actions">
+                        <button class="btn btn-primary" onclick="addCart('Trà Nhân Trần')"><i class="fa-solid fa-cart-plus"></i> Mua ngay</button>
+                        <a href="chi-tiet.html#nhan-tran"><button class="btn btn-outline"><i class="fa-solid fa-eye"></i> Chi tiết</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Dụng cụ y tế ===== -->
+    <section class="products-section category-section" data-cat="dung-cu" style="padding-top:0;">
+        <div class="text-center reveal">
+            <div class="section-label">Danh mục</div>
+            <h2 class="section-title">Dụng Cụ Y Tế</h2>
+            <p class="section-sub">Thiết bị y tế chính hãng, chất lượng cao, hỗ trợ chăm sóc sức khỏe tại nhà</p>
+        </div>
+        <div class="products-grid">
+            <div class="product-card reveal stagger-1" data-cat="dung-cu">
+                <div class="img-wrap">
+                    <img src="../assets/nhiệt kế điện tử.jpg" alt="Nhiệt Kế Điện Tử">
+                    <span class="badge">Dụng cụ y tế</span>
+                    <span class="product-badge hot">Bán chạy</span>
+                </div>
+                <div class="body">
+                    <h3>Nhiệt Kế Điện Tử</h3>
+                    <p>Đo nhiệt độ nhanh chóng, chính xác. Màn hình LCD dễ đọc.</p>
+                    <div class="price">180.000 <small>VNĐ</small></div>
+                    <div class="actions">
+                        <button class="btn btn-primary" onclick="addCart('Nhiệt Kế Điện Tử')"><i class="fa-solid fa-cart-plus"></i> Mua ngay</button>
+                        <a href="chi-tiet.html#nhiet-ke"><button class="btn btn-outline"><i class="fa-solid fa-eye"></i> Chi tiết</button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card reveal stagger-2" data-cat="dung-cu">
+                <div class="img-wrap">
+                    <img src="../assets/đo đường điện tử.jpg" alt="Máy Đo Đường Huyết">
+                    <span class="badge">Dụng cụ y tế</span>
+                    <span class="product-badge sale">Giảm 10%</span>
+                </div>
+                <div class="body">
+                    <h3>Máy Đo Đường Huyết</h3>
+                    <p>Kiểm tra đường huyết nhanh tại nhà. Độ chính xác cao.</p>
+                    <div class="price">790.000 <small>VNĐ</small></div>
+                    <div class="actions">
+                        <button class="btn btn-primary" onclick="addCart('Máy Đo Đường Huyết')"><i class="fa-solid fa-cart-plus"></i> Mua ngay</button>
+                        <a href="chi-tiet.html#may-do-duong"><button class="btn btn-outline"><i class="fa-solid fa-eye"></i> Chi tiết</button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card reveal stagger-3" data-cat="dung-cu">
+                <div class="img-wrap">
+                    <img src="../assets/Băng Cá Nhân.jpg" alt="Băng cá nhân">
+                    <span class="badge">Dụng cụ y tế</span>
+                </div>
+                <div class="body">
+                    <h3>Băng Cá Nhân</h3>
+                    <p>Băng vết thương nhanh, chống thấm, thoáng khí. Hộp 20 miếng.</p>
+                    <div class="price">25.000 <small>VNĐ</small></div>
+                    <div class="actions">
+                        <button class="btn btn-primary" onclick="addCart('Băng Cá Nhân')"><i class="fa-solid fa-cart-plus"></i> Mua ngay</button>
+                        <a href="chi-tiet.html#bang-ca-nhan"><button class="btn btn-outline"><i class="fa-solid fa-eye"></i> Chi tiết</button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card reveal stagger-4" data-cat="dung-cu">
+                <div class="img-wrap">
+                    <img src="../assets/Nước Muối Sinh Lý.jpg" alt="Nước muối sinh lý">
+                    <span class="badge">Dụng cụ y tế</span>
+                </div>
+                <div class="body">
+                    <h3>Nước Muối Sinh Lý</h3>
+                    <p>Vệ sinh mũi, họng hàng ngày. An toàn cho trẻ sơ sinh và người lớn.</p>
+                    <div class="price">15.000 <small>VNĐ</small></div>
+                    <div class="actions">
+                        <button class="btn btn-primary" onclick="addCart('Nước Muối Sinh Lý')"><i class="fa-solid fa-cart-plus"></i> Mua ngay</button>
+                        <a href="chi-tiet.html#nuoc-muoi"><button class="btn btn-outline"><i class="fa-solid fa-eye"></i> Chi tiết</button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card reveal stagger-5" data-cat="dung-cu">
+                <div class="img-wrap">
+                    <img src="../assets/Bông Y Tế.jpg" alt="Bông y tế">
+                    <span class="badge">Dụng cụ y tế</span>
+                </div>
+                <div class="body">
+                    <h3>Bông Y Tế</h3>
+                    <p>Bông thấm hút cao, vệ sinh vết thương, lau rửa. Gói 100g.</p>
+                    <div class="price">30.000 <small>VNĐ</small></div>
+                    <div class="actions">
+                        <button class="btn btn-primary" onclick="addCart('Bông Y Tế')"><i class="fa-solid fa-cart-plus"></i> Mua ngay</button>
+                        <a href="chi-tiet.html#bong-y-te"><button class="btn btn-outline"><i class="fa-solid fa-eye"></i> Chi tiết</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Sản phẩm bảo hộ ===== -->
+    <section class="products-section category-section" data-cat="bao-ho" style="padding-top:0;">
+        <div class="text-center reveal">
+            <div class="section-label">Danh mục</div>
+            <h2 class="section-title">Sản Phẩm Bảo Hộ</h2>
+            <p class="section-sub">Bảo vệ sức khỏe bản thân và gia đình mỗi ngày</p>
+        </div>
+        <div class="products-grid">
+            <div class="product-card reveal stagger-1" data-cat="bao-ho">
+                <div class="img-wrap">
+                    <img src="../assets/khẩu trang.jpg" alt="Khẩu Trang Y Tế">
+                    <span class="badge">Bảo hộ</span>
+                    <span class="product-badge hot">Bán chạy</span>
+                </div>
+                <div class="body">
+                    <h3>Khẩu Trang Y Tế</h3>
+                    <p>Lọc bụi, kháng khuẩn, bảo vệ hô hấp. 4 lớp lọc an toàn.</p>
+                    <div class="price">45.000 <small>VNĐ</small></div>
+                    <div class="actions">
+                        <button class="btn btn-primary" onclick="addCart('Khẩu Trang Y Tế')"><i class="fa-solid fa-cart-plus"></i> Mua ngay</button>
+                        <a href="chi-tiet.html#khau-trang"><button class="btn btn-outline"><i class="fa-solid fa-eye"></i> Chi tiết</button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card reveal stagger-2" data-cat="bao-ho">
+                <div class="img-wrap">
+                    <img src="../assets/bao cao su.jpg" alt="BCS Cao Cấp">
+                    <span class="badge">Bảo hộ</span>
+                    <span class="product-badge sale">Giảm 10%</span>
+                </div>
+                <div class="body">
+                    <h3>BCS Cao Cấp</h3>
+                    <p>Bao cao su an toàn, êm ái. Chất lượng cao, đóng gói kín.</p>
+                    <div class="price">85.000 <small>VNĐ</small></div>
+                    <div class="actions">
+                        <button class="btn btn-primary" onclick="addCart('BCS Cao Cấp')"><i class="fa-solid fa-cart-plus"></i> Mua ngay</button>
+                        <a href="chi-tiet.html#bcs"><button class="btn btn-outline"><i class="fa-solid fa-eye"></i> Chi tiết</button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card reveal stagger-3" data-cat="bao-ho">
+                <div class="img-wrap">
+                    <img src="../assets/Găng Tay Y Tế.jpg" alt="Găng tay y tế">
+                    <span class="badge">Bảo hộ</span>
+                </div>
+                <div class="body">
+                    <h3>Găng Tay Y Tế</h3>
+                    <p>Găng tay cao su không bột, bảo vệ khi tiếp xúc vết thương.</p>
+                    <div class="price">35.000 <small>VNĐ</small></div>
+                    <div class="actions">
+                        <button class="btn btn-primary" onclick="addCart('Găng Tay Y Tế')"><i class="fa-solid fa-cart-plus"></i> Mua ngay</button>
+                        <a href="chi-tiet.html#gang-tay"><button class="btn btn-outline"><i class="fa-solid fa-eye"></i> Chi tiết</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>Duy Khôi Pharmacy</h3>
+                <p>Smart Pharmacy 4.0 - Chăm sóc sức khỏe toàn diện bằng công nghệ thông minh.</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="#"><i class="fa-brands fa-zalo"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Liên kết</h4>
+                <ul class="footer-links">
+                    <li><a href="../index.html">Trang chủ</a></li>
+                    <li><a href="gioi-thieu.html">Giới thiệu</a></li>
+                    <li><a href="san-pham.html">Sản phẩm</a></li>
+                    <li><a href="tin-tuc.html">Tin tức</a></li>
+                    <li><a href="lien-he.html">AI Tư vấn</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Giờ làm việc</h4>
+                <p><i class="fa-regular fa-clock"></i> T2 - T7: 7:00 - 21:00</p>
+                <p><i class="fa-regular fa-clock"></i> CN: 8:00 - 17:00</p>
+                <p><i class="fa-solid fa-robot"></i> AI Tư vấn: 24/7</p>
+                <p><i class="fa-solid fa-location-dot"></i> Trà Vinh, Việt Nam</p>
+            </div>
+            <div class="footer-col">
+                <h4>Đăng ký</h4>
+                <p>Nhận tin khuyến mãi và kiến thức sức khỏe mỗi tuần.</p>
+                <div class="footer-newsletter">
+                    <input type="email" placeholder="Email của bạn...">
+                    <button><i class="fa-solid fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Duy Khôi Smart Pharmacy. Tất cả quyền được bảo lưu.</p>
+        </div>
+    </footer>
+
+    <div class="clock-widget" id="clock"></div>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>
