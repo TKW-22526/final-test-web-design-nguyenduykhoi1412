@@ -187,6 +187,6 @@ Họ và tên:NGUYỄN DUY KHÔI
 Mã số sinh viên:110124098
 Lớp:DA24TTC
 Tên đề tài:THIẾT KẾ WEBSITE KINH DOANH HIỆU THUỐC DUY KHÔI-SMATR PHARMACY 4.0 
-Liên kết GitHub repository:D
+Liên kết GitHub repository:https://github.com/TKW-22526/final-test-web-design-nguyenduykhoi1412.git
 Liên kết GitHub Pages:https://tkw-22526.github.io/final-test-web-design-nguyenduykhoi1412/
 ```
