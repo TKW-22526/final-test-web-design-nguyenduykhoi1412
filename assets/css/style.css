@@ -606,20 +606,6 @@ nav a.active { background: var(--green-soft); color: var(--green); font-weight: 
 
 .product-card:hover .img-wrap img { transform: scale(1.08); }
 
-.product-card .img-wrap .badge {
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    background: var(--green);
-    color: white;
-    padding: 3px 10px;
-    border-radius: 50px;
-    font-size: 10px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
 .product-card .body {
     padding: 20px;
     flex: 1;
@@ -2089,28 +2075,30 @@ table tr:hover td { background: var(--green-soft); }
 
 .product-badge {
     position: absolute;
-    top: 10px;
-    left: 10px;
+    top: 8px;
+    right: 8px;
+    left: auto;
     z-index: 5;
-    padding: 3px 10px;
-    border-radius: 50px;
-    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 10px;
     font-weight: 700;
     font-family: var(--font);
     pointer-events: none;
-    box-shadow: 0 2px 8px rgba(0,0,0,.12);
+    box-shadow: 0 2px 6px rgba(0,0,0,.15);
     animation: badgePop .4s cubic-bezier(.4,0,.2,1) forwards;
     transform-origin: center;
     transform: scale(0);
+    line-height: 1.4;
 }
 
 .product-badge.hot {
-    background: linear-gradient(135deg, #ff6b35, #e74c3c);
+    background: #e74c3c;
     color: white;
 }
 
 .product-badge.sale {
-    background: linear-gradient(135deg, var(--green), var(--green-darker));
+    background: var(--green);
     color: white;
 }
 
@@ -2122,6 +2110,7 @@ table tr:hover td { background: var(--green-soft); }
 
 .product-card .img-wrap .badge {
     position: absolute;
+    top: auto;
     bottom: 10px;
     left: 10px;
     z-index: 5;
@@ -2134,4 +2123,6 @@ table tr:hover td { background: var(--green-soft); }
     font-weight: 600;
     color: var(--gray-600);
     pointer-events: none;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
